@@ -4,6 +4,8 @@ import { Check, Shield, Star, Target } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import StatHighlight from '@/components/ui/StatHighlight';
 import { getPageMetadata } from '@/lib/utils/seo';
+import ScrollReveal from '@/components/animations/ScrollReveal';
+import StaggerReveal from '@/components/animations/StaggerReveal';
 
 export const metadata: Metadata = getPageMetadata('pricing');
 
@@ -103,13 +105,15 @@ export default function PricingPage() {
   return (
     <div className="bg-cosmic-deep">
       <div className="mx-auto flex max-w-7xl flex-col gap-24 px-4 py-24 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="Pricing"
-          title="Invest in adaptive learning that scales with your institution"
-          subtitle="Every plan starts with a collaborative roadmap so you launch with confidence. Choose the level of automation, integrations, and strategic partnership that best fits your growth stage."
+        <ScrollReveal>
+          <SectionHeader
+            eyebrow="Pricing"
+            title="Invest in adaptive learning that scales with your institution"
+            subtitle="Every plan starts with a collaborative roadmap so you launch with confidence. Choose the level of automation, integrations, and strategic partnership that best fits your growth stage."
           />
+        </ScrollReveal>
 
-          <section className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <StaggerReveal className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {plans.map((plan) => (
               <article
                 key={plan.name}
@@ -148,15 +152,15 @@ export default function PricingPage() {
                 </Link>
               </article>
             ))}
-          </section>
+          </StaggerReveal>
 
-          <section className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <StaggerReveal className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <StatHighlight value="14 days" label="Average time to pilot launch" description="Kick off your first adaptive cohort in weeks, not months, with guided onboarding." />
             <StatHighlight value="96%" label="Implementation satisfaction" description="Post-launch survey response across the last 40 deployments spanning higher-ed and workforce programs." />
             <StatHighlight value="45%" label="Operational efficiency gain" description="Reduction in manual tasks for operations teams measured over the first two quarters." />
-          </section>
+          </StaggerReveal>
 
-          <section className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14">
+          <ScrollReveal className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
               <div className="space-y-6">
                 <h3 className="text-2xl font-semibold text-starlight">Strategic partnership from day one</h3>
@@ -201,9 +205,9 @@ export default function PricingPage() {
                 </ul>
               </div>
             </div>
-          </section>
+          </ScrollReveal>
 
-          <section className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14">
+          <ScrollReveal className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14">
             <h3 className="text-2xl font-semibold text-starlight">Frequently asked questions</h3>
             <dl className="mt-8 space-y-6">
               {faqs.map((faq) => (
@@ -216,9 +220,9 @@ export default function PricingPage() {
                 </div>
               ))}
             </dl>
-          </section>
+          </ScrollReveal>
 
-          <section className="flex flex-col gap-6 rounded-3xl border border-white/15 bg-white/[0.04] px-8 py-12 text-center">
+          <ScrollReveal className="flex flex-col gap-6 rounded-3xl border border-white/15 bg-white/[0.04] px-8 py-12 text-center">
             <h3 className="text-2xl font-semibold text-starlight">Ready to map pricing to your roadmap?</h3>
             <p className="text-starlight/70">
               Share your program goals, learner volume, and integration needs. We will assemble a tailored proposal within two business days, including implementation timeline and ROI projections.
@@ -237,7 +241,7 @@ export default function PricingPage() {
                 Explore technical docs
               </Link>
             </div>
-          </section>
+          </ScrollReveal>
         </div>
       </div>
   );

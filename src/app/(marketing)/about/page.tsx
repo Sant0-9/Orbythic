@@ -4,6 +4,8 @@ import { Compass, Globe2, Lightbulb, ShieldCheck, Users } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import StatHighlight from '@/components/ui/StatHighlight';
 import { getPageMetadata } from '@/lib/utils/seo';
+import ScrollReveal from '@/components/animations/ScrollReveal';
+import StaggerReveal from '@/components/animations/StaggerReveal';
 
 export const metadata: Metadata = getPageMetadata('about');
 
@@ -83,13 +85,15 @@ export default function AboutPage() {
   return (
     <div className="bg-cosmic-deep">
       <div className="mx-auto flex max-w-7xl flex-col gap-24 px-4 py-24 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="About Orbythic"
-          title="Engineering learning systems that unlock human potential"
-          subtitle="We are a team of educators, engineers, and designers building Quasera—an adaptive operating system for learning that respects the craft of teaching while amplifying what is possible with AI."
+        <ScrollReveal>
+          <SectionHeader
+            eyebrow="About Orbythic"
+            title="Engineering learning systems that unlock human potential"
+            subtitle="We are a team of educators, engineers, and designers building Quasera—an adaptive operating system for learning that respects the craft of teaching while amplifying what is possible with AI."
           />
+        </ScrollReveal>
 
-          <section className="grid grid-cols-1 gap-10 lg:grid-cols-3">
+          <StaggerReveal className="grid grid-cols-1 gap-10 lg:grid-cols-3">
             <article className="rounded-3xl border border-white/10 bg-white/[0.05] p-8">
               <Compass className="h-10 w-10 text-nebula-purple" aria-hidden />
               <h3 className="mt-6 text-2xl font-semibold text-starlight">Our Mission</h3>
@@ -111,9 +115,9 @@ export default function AboutPage() {
                 Accessibility, privacy, and measurable outcomes guide our roadmap. We pair technical rigor with deep respect for the communities we serve.
               </p>
             </article>
-          </section>
+          </StaggerReveal>
 
-          <section className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14">
+          <ScrollReveal className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14">
             <h3 className="text-2xl font-semibold text-starlight">Core values</h3>
             <p className="mt-4 max-w-3xl text-starlight/70">
               Values shape every decision we make, from how we design features to how we build partnerships. They give our team a shared language for evaluating trade-offs and staying mission-aligned as we grow.
@@ -130,9 +134,9 @@ export default function AboutPage() {
                 </article>
               ))}
             </div>
-          </section>
+          </ScrollReveal>
 
-          <section className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14">
+          <ScrollReveal className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14">
             <h3 className="text-2xl font-semibold text-starlight">Milestones</h3>
             <p className="mt-4 max-w-3xl text-starlight/70">
               Our journey is shaped by close collaboration with educators and learners. Each milestone reflects a commitment to co-creating solutions rather than imposing technology for its own sake.
@@ -153,15 +157,15 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-          </section>
+          </ScrollReveal>
 
-          <section className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <StaggerReveal className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <StatHighlight value="12+" label="Active research collaborations" description="Working with universities, accelerators, and non-profits to pilot new learning models." />
             <StatHighlight value="40" label="Programs launched in 2024" description="Across higher education, workforce development, and corporate academies." />
             <StatHighlight value="92%" label="Faculty approval rating" description="Educators who report improved visibility and focus since adopting Quasera." />
-          </section>
+          </StaggerReveal>
 
-          <section className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14">
+          <ScrollReveal className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14">
             <h3 className="text-2xl font-semibold text-starlight">Leadership circle</h3>
             <p className="mt-4 max-w-3xl text-starlight/70">
               Our leadership blends experience from ed-tech, learning science, and AI research. Together they guide Orbythic’s mission to fuse technology with human-centered learning.
@@ -182,9 +186,9 @@ export default function AboutPage() {
                 </article>
               ))}
             </div>
-          </section>
+          </ScrollReveal>
 
-          <section className="flex flex-col gap-6 rounded-3xl border border-white/15 bg-white/[0.04] px-8 py-12 text-center md:flex-row md:items-center md:justify-between md:text-left">
+          <ScrollReveal className="flex flex-col gap-6 rounded-3xl border border-white/15 bg-white/[0.04] px-8 py-12 text-center md:flex-row md:items-center md:justify-between md:text-left">
             <div className="space-y-3">
               <h3 className="text-2xl font-semibold text-starlight">Partner with Orbythic</h3>
               <p className="text-starlight/70">
@@ -205,7 +209,7 @@ export default function AboutPage() {
                 Explore insights
               </Link>
             </div>
-          </section>
+          </ScrollReveal>
         </div>
       </div>
   );

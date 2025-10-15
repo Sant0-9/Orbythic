@@ -13,6 +13,8 @@ import {
 import SectionHeader from '@/components/ui/SectionHeader';
 import StatHighlight from '@/components/ui/StatHighlight';
 import { getPageMetadata } from '@/lib/utils/seo';
+import ScrollReveal from '@/components/animations/ScrollReveal';
+import StaggerReveal from '@/components/animations/StaggerReveal';
 
 export const metadata: Metadata = getPageMetadata('solutions');
 
@@ -118,13 +120,15 @@ export default function SolutionsPage() {
   return (
     <div className="bg-cosmic-deep">
         <div className="mx-auto flex max-w-7xl flex-col gap-24 px-4 py-24 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Solutions"
-            title="Activate confident learning experiences for every audience"
-            subtitle="Orbythic partners with program leaders to architect adaptive journeys that deliver measurable outcomes, whether you are educating first-year students, reskilling entire workforces, or scaling research operations globally."
-          />
+          <ScrollReveal>
+            <SectionHeader
+              eyebrow="Solutions"
+              title="Activate confident learning experiences for every audience"
+              subtitle="Orbythic partners with program leaders to architect adaptive journeys that deliver measurable outcomes, whether you are educating first-year students, reskilling entire workforces, or scaling research operations globally."
+            />
+          </ScrollReveal>
 
-          <section className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <StaggerReveal className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {audiences.map((audience) => (
               <article
                 key={audience.name}
@@ -155,9 +159,9 @@ export default function SolutionsPage() {
                 </Link>
               </article>
             ))}
-          </section>
+          </StaggerReveal>
 
-          <section className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14">
+          <ScrollReveal className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-5">
               <div className="lg:col-span-2 space-y-5">
                 <h3 className="text-2xl font-semibold text-starlight">
@@ -186,9 +190,9 @@ export default function SolutionsPage() {
                 ))}
               </div>
             </div>
-          </section>
+          </ScrollReveal>
 
-          <section className="grid grid-cols-1 gap-10 lg:grid-cols-3">
+          <StaggerReveal className="grid grid-cols-1 gap-10 lg:grid-cols-3">
             {differentiators.map((item) => (
               <article
                 key={item.title}
@@ -203,9 +207,9 @@ export default function SolutionsPage() {
                 </p>
               </article>
             ))}
-          </section>
+          </StaggerReveal>
 
-          <section className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <StaggerReveal className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {metrics.map((metric) => (
               <StatHighlight
                 key={metric.label}
@@ -214,9 +218,9 @@ export default function SolutionsPage() {
                 description={metric.description}
               />
             ))}
-          </section>
+          </StaggerReveal>
 
-          <section className="flex flex-col gap-6 rounded-3xl border border-white/15 bg-white/[0.04] px-8 py-12 md:flex-row md:items-center md:justify-between">
+          <ScrollReveal className="flex flex-col gap-6 rounded-3xl border border-white/15 bg-white/[0.04] px-8 py-12 md:flex-row md:items-center md:justify-between">
             <div className="space-y-3">
               <h3 className="text-2xl font-semibold text-starlight">
                 Let&apos;s architect your learning ecosystem
@@ -239,7 +243,7 @@ export default function SolutionsPage() {
                 Review pricing options
               </Link>
             </div>
-          </section>
+          </ScrollReveal>
         </div>
       </div>
   );
