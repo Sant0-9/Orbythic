@@ -29,7 +29,7 @@ export function useScrollAnimation() {
 
     return () => {
       animation.kill();
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      animation.scrollTrigger?.kill();
     };
   }, []);
 
@@ -61,7 +61,7 @@ export function useStaggerAnimation(childSelector: string = '.animate-item') {
 
     return () => {
       animation.kill();
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      animation.scrollTrigger?.kill();
     };
   }, [childSelector]);
 
@@ -76,7 +76,7 @@ export function useParallax(speed: number = 0.5) {
 
     const element = elementRef.current;
 
-    gsap.to(element, {
+    const animation = gsap.to(element, {
       y: () => window.innerHeight * speed,
       ease: 'none',
       scrollTrigger: {
@@ -88,7 +88,8 @@ export function useParallax(speed: number = 0.5) {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      animation.kill();
+      animation.scrollTrigger?.kill();
     };
   }, [speed]);
 
@@ -117,7 +118,7 @@ export function useFadeInScale() {
 
     return () => {
       animation.kill();
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      animation.scrollTrigger?.kill();
     };
   }, []);
 
