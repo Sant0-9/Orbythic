@@ -41,15 +41,18 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center group">
+          <Link href="/" className="flex items-center space-x-3 group">
             <Image
               src="/orbythic-logo.png"
               alt="Orbythic"
-              width={160}
-              height={40}
-              className="h-10 w-auto group-hover:opacity-80 transition-opacity duration-300"
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-md bg-white/5 p-1 ring-1 ring-white/10 transition duration-300 group-hover:ring-nebula-purple/40"
               priority
             />
+            <span className="text-lg font-semibold tracking-tight text-starlight group-hover:text-gradient transition-colors duration-300">
+              Orbythic
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
