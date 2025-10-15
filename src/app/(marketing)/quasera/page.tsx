@@ -4,6 +4,8 @@ import { Cpu, Layers, LineChart, ShieldCheck, Sparkles, Workflow } from 'lucide-
 import { getPageMetadata, generateStructuredData } from '@/lib/utils/seo';
 import SectionHeader from '@/components/ui/SectionHeader';
 import StatHighlight from '@/components/ui/StatHighlight';
+import ScrollReveal from '@/components/animations/ScrollReveal';
+import StaggerReveal from '@/components/animations/StaggerReveal';
 
 export const metadata: Metadata = getPageMetadata('quasera');
 
@@ -72,14 +74,16 @@ export default function QuaseraPage() {
       />
       <div className="bg-cosmic-deep">
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Adaptive Learning Operating System"
-            title={<span className="text-gradient">Quasera</span>}
-            subtitle="Purpose-built to give education leaders complete command over learning journeys, outcomes, and engagement at scale."
-          />
+          <ScrollReveal>
+            <SectionHeader
+              eyebrow="Adaptive Learning Operating System"
+              title={<span className="text-gradient">Quasera</span>}
+              subtitle="Purpose-built to give education leaders complete command over learning journeys, outcomes, and engagement at scale."
+            />
+          </ScrollReveal>
 
           <div className="mt-20 grid grid-cols-1 gap-12 lg:grid-cols-5">
-            <div className="lg:col-span-3 space-y-10">
+            <StaggerReveal className="lg:col-span-3 space-y-10">
               {aiCapabilities.map((capability) => (
                 <div
                   key={capability.title}
@@ -102,7 +106,7 @@ export default function QuaseraPage() {
                   </ul>
                 </div>
               ))}
-            </div>
+            </StaggerReveal>
 
             <aside className="lg:col-span-2 flex flex-col justify-between gap-10 rounded-3xl border border-white/10 bg-white/[0.03] p-8">
               <div className="space-y-6">
@@ -132,7 +136,7 @@ export default function QuaseraPage() {
             </aside>
           </div>
 
-          <div className="mt-24 grid grid-cols-1 gap-10 lg:grid-cols-3">
+          <StaggerReveal className="mt-24 grid grid-cols-1 gap-10 lg:grid-cols-3">
             {trustSignals.map((signal) => (
               <article
                 key={signal.title}
@@ -147,9 +151,9 @@ export default function QuaseraPage() {
                 </p>
               </article>
             ))}
-          </div>
+          </StaggerReveal>
 
-          <div className="mt-24 rounded-3xl border border-white/10 bg-white/[0.03] p-10 md:p-14">
+          <ScrollReveal className="mt-24 rounded-3xl border border-white/10 bg-white/[0.03] p-10 md:p-14">
             <SectionHeader
               align="left"
               eyebrow="Adaptive Learning Framework"
@@ -181,9 +185,9 @@ export default function QuaseraPage() {
                 </p>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
-          <div className="mt-24 flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/15 bg-white/[0.04] px-8 py-12 text-center md:flex-row md:text-left">
+          <ScrollReveal className="mt-24 flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/15 bg-white/[0.04] px-8 py-12 text-center md:flex-row md:text-left">
             <div className="space-y-3">
               <h3 className="text-2xl font-semibold text-starlight">Ready to orchestrate learning with precision?</h3>
               <p className="text-starlight/70">
@@ -196,7 +200,7 @@ export default function QuaseraPage() {
             >
               Map Your Use Case
             </Link>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </>

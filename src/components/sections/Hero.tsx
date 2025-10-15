@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Search, ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import styles from '@/styles/cosmic.module.css';
 import StatHighlight from '@/components/ui/StatHighlight';
@@ -129,25 +129,6 @@ export default function Hero() {
           >
             Discover Quasera by Orbythic, the next-generation educational platform that adapts to how students learn. Join 10,000+ learners worldwide.
           </motion.p>
-
-          {/* Search bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="max-w-2xl mx-auto"
-          >
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Search className="h-5 w-5 text-starlight/40" />
-              </div>
-              <input
-                type="text"
-                placeholder="Search for educational content..."
-                className="w-full pl-12 pr-4 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg text-starlight placeholder-starlight/40 focus:outline-none focus:ring-2 focus:ring-nebula-purple/50 focus:border-nebula-purple/50 transition-all duration-300"
-              />
-            </div>
-          </motion.div>
 
           {/* CTA buttons */}
           <motion.div
