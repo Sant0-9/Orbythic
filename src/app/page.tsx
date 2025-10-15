@@ -21,7 +21,7 @@ export default function Home() {
         }}
       />
       <Navigation />
-      <main>
+      <main className="pt-16">
         <Hero />
       </main>
     </>
