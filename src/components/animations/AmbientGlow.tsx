@@ -29,21 +29,20 @@ export default function AmbientGlow() {
       // Clear canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Create ambient glow gradient
+      // Create ambient glow gradient with cool underwater hues
       const gradient = ctx.createRadialGradient(
-        canvas.width / 2 + Math.sin(time) * 150, // Slow horizontal drift
-        canvas.height * 0.3 + Math.cos(time * 0.7) * 80, // Slow vertical breathing
+        canvas.width / 2 + Math.sin(time) * 160,
+        canvas.height * 0.28 + Math.cos(time * 0.65) * 90,
         0,
         canvas.width / 2,
-        canvas.height * 0.3,
-        canvas.width * 0.6
+        canvas.height * 0.28,
+        canvas.width * 0.65
       );
 
-      // Amber/warm glow colors with very low opacity
-      gradient.addColorStop(0, 'rgba(251, 191, 36, 0.08)'); // Warm amber center
-      gradient.addColorStop(0.3, 'rgba(245, 158, 11, 0.04)'); // Mid amber
-      gradient.addColorStop(0.6, 'rgba(217, 119, 6, 0.02)'); // Faint amber
-      gradient.addColorStop(1, 'rgba(180, 83, 9, 0)'); // Fade to transparent
+      gradient.addColorStop(0, 'rgba(96, 165, 250, 0.16)');
+      gradient.addColorStop(0.35, 'rgba(59, 130, 246, 0.08)');
+      gradient.addColorStop(0.65, 'rgba(29, 78, 216, 0.04)');
+      gradient.addColorStop(1, 'rgba(15, 23, 42, 0)');
 
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -62,7 +61,7 @@ export default function AmbientGlow() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none opacity-80"
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-70"
       style={{
         mixBlendMode: 'screen',
         willChange: 'transform',

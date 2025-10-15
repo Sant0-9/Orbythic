@@ -4,27 +4,27 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: linear-gradient(188deg, #000000 0%, #02010a 45%, #000000 100%);
-  background-color: #000000;
+  background: linear-gradient(196deg, #000208 0%, #01020f 45%, #00020c 100%);
+  background-color: #000106;
 }
 
 .heroBackground::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(130% 90% at 50% -25%, rgba(255, 210, 130, 0.28), transparent 60%);
-  filter: blur(120px);
-  opacity: 0.4;
-  animation: heroBackgroundPulse 26s ease-in-out infinite;
+  inset: -12% -18% 10%;
+  background: radial-gradient(135% 110% at 50% -35%, rgba(64, 132, 255, 0.32), transparent 65%);
+  filter: blur(160px);
+  opacity: 0.35;
+  animation: heroBackgroundPulse 30s ease-in-out infinite;
   will-change: transform, opacity;
 }
 
 .heroBackground::after {
   content: '';
   position: absolute;
-  inset: -20% -15% 40%;
-  background: radial-gradient(120% 120% at 70% 0%, rgba(255, 180, 90, 0.18), transparent 70%);
-  filter: blur(200px);
+  inset: -18% -12% 35%;
+  background: radial-gradient(140% 130% at 70% -5%, rgba(38, 98, 255, 0.25), transparent 72%);
+  filter: blur(220px);
   opacity: 0.28;
 }
 
@@ -54,11 +54,11 @@
 
 .heroSpotlight {
   position: absolute;
-  inset: -15% -20% -12%;
-  background: radial-gradient(50% 170% at 50% 0%, rgba(255, 210, 140, 0.32), transparent 65%);
+  inset: -16% -22% -14%;
+  background: radial-gradient(52% 180% at 50% 0%, rgba(88, 167, 255, 0.28), transparent 68%);
   mix-blend-mode: screen;
-  opacity: 0.38;
-  animation: heroGlow 26s ease-in-out infinite;
+  opacity: 0.32;
+  animation: heroGlow 28s ease-in-out infinite;
   will-change: transform, opacity;
 }
 
@@ -66,65 +66,82 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(45% 140% at 50% 0%, rgba(255, 190, 100, 0.4), transparent 70%);
-  filter: blur(80px);
-  opacity: 0.6;
+  background: radial-gradient(60% 160% at 50% 0%, rgba(62, 142, 255, 0.35), transparent 75%);
+  filter: blur(100px);
+  opacity: 0.55;
 }
 
 
 .heroWave {
   position: absolute;
-  inset: -18% -22% -10%;
+  inset: -20% -24% -14%;
   pointer-events: none;
   background:
-    radial-gradient(140% 95% at 50% -35%, rgba(255, 204, 124, 0.4), rgba(255, 204, 124, 0.07) 50%, transparent 70%),
-    radial-gradient(130% 90% at 45% -45%, rgba(255, 188, 90, 0.18), transparent 65%),
-    radial-gradient(130% 90% at 55% -45%, rgba(255, 188, 90, 0.18), transparent 65%);
+    radial-gradient(160% 110% at 50% -50%, rgba(96, 176, 255, 0.32), transparent 70%),
+    radial-gradient(150% 130% at 45% -40%, rgba(54, 145, 255, 0.18), transparent 70%),
+    radial-gradient(150% 130% at 55% -40%, rgba(54, 145, 255, 0.18), transparent 70%);
   mix-blend-mode: screen;
-  filter: blur(60px);
-  opacity: 0.45;
+  filter: blur(70px);
+  opacity: 0.36;
   transform: translate3d(0, 0, 0) scale(1.05);
-  animation: heroWaveBreath 28s ease-in-out infinite;
+  animation: heroWaveBreath 32s ease-in-out infinite;
   will-change: transform, opacity;
+}
+
+.heroCaustics {
+  position: absolute;
+  inset: -12% -26% -6%;
+  pointer-events: none;
+  background-image:
+    radial-gradient(120% 90% at 50% -30%, rgba(110, 200, 255, 0.18), transparent 65%),
+    repeating-linear-gradient(120deg, rgba(94, 173, 255, 0.12) 0 14px, transparent 14px 32px),
+    repeating-linear-gradient(60deg, rgba(94, 173, 255, 0.08) 0 18px, transparent 18px 36px);
+  background-size: 160% 160%, 220% 220%, 180% 180%;
+  background-position: center, 0% 0%, 0% 0%;
+  mix-blend-mode: screen;
+  opacity: 0.22;
+  filter: blur(80px);
+  animation: heroCausticDrift 36s ease-in-out infinite;
+  will-change: background-position, opacity;
 }
 
 .heroRays {
   position: absolute;
-  top: -60%;
-  left: -40%;
+  top: -62%;
+  left: -42%;
   width: 180%;
-  height: 170%;
+  height: 175%;
   pointer-events: none;
   background:
-    linear-gradient(200deg, rgba(255, 204, 130, 0.18) 0%, rgba(255, 204, 130, 0.02) 55%),
-    linear-gradient(145deg, rgba(255, 176, 82, 0.12) 20%, rgba(255, 176, 82, 0.02) 70%);
+    linear-gradient(210deg, rgba(102, 180, 255, 0.18) 0%, rgba(102, 180, 255, 0.02) 55%),
+    linear-gradient(150deg, rgba(62, 140, 255, 0.12) 25%, rgba(62, 140, 255, 0.02) 70%);
   mix-blend-mode: screen;
-  opacity: 0.22;
-  filter: blur(70px);
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.08) 70%, transparent 100%);
-  animation: heroRaySweep 30s cubic-bezier(0.55, 0.3, 0.24, 0.9) infinite;
+  opacity: 0.2;
+  filter: blur(80px);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.1) 72%, transparent 100%);
+  animation: heroRaySweep 34s cubic-bezier(0.52, 0.31, 0.28, 0.88) infinite;
   will-change: transform, opacity;
 }
 
 .heroRays::after {
   content: '';
   position: absolute;
-  inset: -8% -6% 10%;
-  background: linear-gradient(180deg, rgba(255, 198, 120, 0.28) 0%, transparent 80%);
-  opacity: 0.4;
-  filter: blur(32px);
+  inset: -8% -6% 12%;
+  background: linear-gradient(180deg, rgba(92, 160, 255, 0.26) 0%, transparent 85%);
+  opacity: 0.35;
+  filter: blur(36px);
 }
 
 .heroAccent {
   position: absolute;
-  bottom: -40%;
+  bottom: -42%;
   left: 50%;
   width: 130%;
   height: 70%;
   transform: translateX(-50%);
-  background: radial-gradient(65% 60% at 50% 0%, rgba(255, 186, 109, 0.35), transparent 75%);
+  background: radial-gradient(65% 60% at 50% 0%, rgba(28, 76, 150, 0.4), transparent 75%);
   filter: blur(160px);
-  opacity: 0.4;
+  opacity: 0.45;
 }
 
 
@@ -133,11 +150,11 @@
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(110% 80% at 50% -15%, rgba(0, 0, 0, 0.78), transparent 65%),
-    radial-gradient(100% 60% at 15% 10%, rgba(0, 0, 0, 0.55), transparent 70%),
-    radial-gradient(100% 60% at 85% 12%, rgba(0, 0, 0, 0.55), transparent 70%);
+    radial-gradient(110% 85% at 50% -18%, rgba(0, 12, 26, 0.8), transparent 68%),
+    radial-gradient(100% 60% at 15% 12%, rgba(0, 8, 20, 0.55), transparent 72%),
+    radial-gradient(100% 60% at 85% 12%, rgba(0, 8, 20, 0.55), transparent 72%);
   mix-blend-mode: multiply;
-  opacity: 0.78;
+  opacity: 0.8;
 }
 
 .heroBlend {
@@ -150,52 +167,82 @@
   pointer-events: none;
 }
 
-@keyframes heroGlow {
+@keyframes heroBackgroundPulse {
   0% {
-    transform: translate3d(0, -4%, 0) scale(1.01);
-    opacity: 0.35;
+    transform: translate3d(0, -4%, 0) scale(1.02);
+    opacity: 0.32;
   }
-  50% {
-    transform: translate3d(0, 3%, 0) scale(1.05);
-    opacity: 0.48;
+  45% {
+    transform: translate3d(-2%, 2%, 0) scale(1.06);
+    opacity: 0.4;
   }
   100% {
-    transform: translate3d(0, -4%, 0) scale(1.01);
-    opacity: 0.35;
+    transform: translate3d(0, -4%, 0) scale(1.02);
+    opacity: 0.32;
+  }
+}
+
+@keyframes heroGlow {
+  0% {
+    transform: translate3d(0, -5%, 0) scale(1.01);
+    opacity: 0.28;
+  }
+  50% {
+    transform: translate3d(0, 4%, 0) scale(1.06);
+    opacity: 0.42;
+  }
+  100% {
+    transform: translate3d(0, -5%, 0) scale(1.01);
+    opacity: 0.28;
   }
 }
 
 @keyframes heroWaveBreath {
   0% {
-    transform: translate3d(-3%, -6%, 0) scale(1.05);
+    transform: translate3d(-4%, -8%, 0) scale(1.05);
+    opacity: 0.3;
+  }
+  45% {
+    transform: translate3d(3%, 4%, 0) scale(1.09);
     opacity: 0.38;
   }
-  40% {
-    transform: translate3d(2%, 3%, 0) scale(1.08);
-    opacity: 0.46;
-  }
-  70% {
-    transform: translate3d(-2%, 6%, 0) scale(1.03);
-    opacity: 0.34;
+  80% {
+    transform: translate3d(-2%, 8%, 0) scale(1.04);
+    opacity: 0.26;
   }
   100% {
-    transform: translate3d(-3%, -6%, 0) scale(1.05);
-    opacity: 0.38;
+    transform: translate3d(-4%, -8%, 0) scale(1.05);
+    opacity: 0.3;
+  }
+}
+
+@keyframes heroCausticDrift {
+  0% {
+    background-position: center, 0% 0%, 0% 0%;
+    opacity: 0.18;
+  }
+  50% {
+    background-position: center, 40% 20%, 35% 25%;
+    opacity: 0.26;
+  }
+  100% {
+    background-position: center, 0% 0%, 0% 0%;
+    opacity: 0.18;
   }
 }
 
 @keyframes heroRaySweep {
   0% {
-    transform: translate3d(-10%, -8%, 0) skewX(-2deg);
-    opacity: 0.2;
+    transform: translate3d(-14%, -10%, 0) skewX(-2deg);
+    opacity: 0.16;
   }
-  45% {
-    transform: translate3d(5%, 5%, 0) skewX(-5deg);
-    opacity: 0.26;
+  50% {
+    transform: translate3d(4%, 6%, 0) skewX(-4deg);
+    opacity: 0.22;
   }
   100% {
-    transform: translate3d(-10%, -8%, 0) skewX(-2deg);
-    opacity: 0.2;
+    transform: translate3d(-14%, -10%, 0) skewX(-2deg);
+    opacity: 0.16;
   }
 }
 
@@ -204,7 +251,7 @@
     background-position: 0% 0%;
   }
   50% {
-    background-position: 50% 30%;
+    background-position: 40% 20%;
   }
   100% {
     background-position: 0% 0%;
@@ -213,6 +260,7 @@
 
 @media (max-width: 768px) {
   .heroWave,
+  .heroCaustics,
   .heroRays {
     opacity: 0.22;
     animation: none;
