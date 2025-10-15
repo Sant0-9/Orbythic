@@ -15,6 +15,7 @@ export default function Hero() {
       <div className={styles.heroRays} />
       <div className={styles.heroNoise} />
       <div className={styles.heroAccent} />
+      <div className={styles.heroBlend} />
 
       <div className="relative z-10 flex min-h-[92vh] items-center py-28">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
