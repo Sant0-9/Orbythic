@@ -17,6 +17,8 @@ export default function Hero() {
       <div className={styles.heroSpotlight} />
       <div className={styles.heroWave} />
       <div className={styles.heroCaustics} />
+      <div className={styles.heroContentGlow} />
+      <div className={styles.heroContentShade} />
       <div className={styles.heroRays} />
       <div className={styles.heroNoise} />
       <div className={styles.heroAccent} />

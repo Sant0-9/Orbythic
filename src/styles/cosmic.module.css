@@ -105,6 +105,36 @@
   will-change: background-position, opacity;
 }
 
+.heroContentGlow {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  width: min(1200px, 88vw);
+  height: clamp(420px, 60vh, 640px);
+  transform: translateX(-50%);
+  pointer-events: none;
+  background:
+    radial-gradient(70% 60% at 50% 42%, rgba(255, 210, 140, 0.5), rgba(255, 210, 140, 0.12) 60%, transparent 90%);
+  mix-blend-mode: screen;
+  filter: blur(46px);
+  opacity: 0.7;
+  animation: heroGlow 32s ease-in-out infinite;
+}
+
+.heroContentShade {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: min(1300px, 92vw);
+  height: clamp(460px, 68vh, 720px);
+  transform: translateX(-50%);
+  pointer-events: none;
+  background: radial-gradient(80% 65% at 50% 48%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 70%, rgba(0, 0, 0, 0.85) 100%);
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+  filter: blur(24px);
+}
+
 .heroRays {
   position: absolute;
   top: -62%;
@@ -261,6 +291,8 @@
 @media (max-width: 768px) {
   .heroWave,
   .heroCaustics,
+  .heroContentGlow,
+  .heroContentShade,
   .heroRays {
     opacity: 0.22;
     animation: none;
