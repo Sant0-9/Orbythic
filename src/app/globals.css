@@ -1,5 +1,70 @@
 @import "tailwindcss";
 
+@theme {
+  --color-cosmic-deep: #0a0e27;
+  --color-cosmic-deep-900: #0f1429;
+  --color-cosmic-deep-800: #141a2b;
+  --color-cosmic-deep-700: #19202d;
+  --color-cosmic-deep-600: #1e262f;
+
+  --color-nebula-purple: #6366f1;
+  --color-nebula-purple-600: #4f46e5;
+  --color-nebula-purple-700: #4338ca;
+  --color-nebula-purple-800: #3730a3;
+
+  --color-stellar-blue: #3b82f6;
+  --color-stellar-blue-600: #2563eb;
+  --color-stellar-blue-700: #1d4ed8;
+  --color-stellar-blue-800: #1e40af;
+
+  --color-aurora-green: #10b981;
+  --color-aurora-green-600: #059669;
+  --color-aurora-green-700: #047857;
+
+  --color-starlight: #fafafa;
+
+  --font-display: var(--font-inter), 'SF Pro Display', system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'Fira Code', monospace;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-twinkle: twinkle 3s ease-in-out infinite;
+  --animate-orbit: orbit 20s linear infinite;
+  --animate-fade-up: fade-up 0.6s ease-out;
+  --animate-fade-in: fade-in 0.8s ease-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+  100% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 :root {
   --cosmic-deep: #0a0e27;
   --nebula-purple: #6366f1;
@@ -7,17 +72,6 @@
   --aurora-green: #10b981;
   --starlight: #fafafa;
   --cosmic-gradient: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
-}
-
-@theme inline {
-  --color-cosmic-deep: var(--cosmic-deep);
-  --color-nebula-purple: var(--nebula-purple);
-  --color-stellar-blue: var(--stellar-blue);
-  --color-aurora-green: var(--aurora-green);
-  --color-starlight: var(--starlight);
-  --font-display: var(--font-inter), 'SF Pro Display', system-ui, sans-serif;
-  --font-body: var(--font-inter), system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), 'Fira Code', monospace;
 }
 
 * {
