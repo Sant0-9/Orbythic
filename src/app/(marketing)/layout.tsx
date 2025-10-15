@@ -1,4 +1,5 @@
 import Navigation from '@/components/sections/Navigation';
+import Footer from '@/components/sections/Footer';
 
 export default function MarketingLayout({
   children,
@@ -11,6 +12,7 @@ export default function MarketingLayout({
       <main className="pt-16">
         {children}
       </main>
+      <Footer />
     </>
   );
 }
