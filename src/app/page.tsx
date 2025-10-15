@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Navigation from '@/components/sections/Navigation';
 import Hero from '@/components/sections/Hero';
+import ProductShowcase from '@/components/sections/ProductShowcase';
 import { getPageMetadata, generateStructuredData } from '@/lib/utils/seo';
 
 export const metadata: Metadata = getPageMetadata('home');
@@ -23,6 +24,7 @@ export default function Home() {
       <Navigation />
       <main className="pt-16">
         <Hero />
+        <ProductShowcase />
       </main>
     </>
   );
