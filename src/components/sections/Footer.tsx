@@ -43,17 +43,14 @@ export default function Footer() {
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center space-x-3 group">
-              <div className="relative h-10 w-10">
-                <Image
-                  src="/logo.svg"
-                  alt="Orbythic Logo"
-                  width={40}
-                  height={40}
-                  className="group-hover:opacity-80 transition-opacity duration-300"
-                />
-              </div>
-              <span className="text-xl font-bold text-starlight">Orbythic</span>
+            <Link href="/" className="inline-block group">
+              <Image
+                src="/orbythic-logo.png"
+                alt="Orbythic"
+                width={160}
+                height={40}
+                className="h-10 w-auto group-hover:opacity-80 transition-opacity duration-300"
+              />
             </Link>
             <p className="mt-4 text-sm text-starlight/70">
               Transform education with AI-powered adaptive learning. Built for institutions that value outcomes, accessibility, and human-centered design.

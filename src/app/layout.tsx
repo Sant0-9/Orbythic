@@ -50,11 +50,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
-        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/logo.svg" />
+        <link rel="icon" href="/orbythic-logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/orbythic-logo.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#6366f1" />
+        <meta name="theme-color" content="#0a0e27" />
       </head>
       <body className="font-body antialiased">
         {children}

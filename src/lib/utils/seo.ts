@@ -38,7 +38,7 @@ export function generateStructuredData(type: 'organization' | 'website' | 'softw
       '@type': 'Organization',
       name: 'Orbythic',
       url: 'https://orbythic.com',
-      logo: 'https://orbythic.com/orbythic-logo.svg',
+      logo: 'https://orbythic.com/orbythic-logo.png',
       description: 'Transform education with AI-powered learning solutions',
       foundingDate: '2024',
       sameAs: [
