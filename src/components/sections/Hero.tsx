@@ -5,17 +5,22 @@ import { Search, ArrowRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import styles from '@/styles/cosmic.module.css';
 import StatHighlight from '@/components/ui/StatHighlight';
+import AmbientGlow from '@/components/animations/AmbientGlow';
 
 export default function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-black">
+    <section className="relative isolate overflow-hidden bg-[#0a0e27]">
+      {/* Ambient glow - Vercel-style breathing light */}
+      <AmbientGlow />
+
+      {/* Existing background layers */}
       <div className={styles.heroBackground} />
       <div className={styles.heroGrid} />
-      <div className={styles.heroSpotlight} />
-      <div className={styles.heroWave} />
-      <div className={styles.heroRays} />
-      <div className={styles.heroNoise} />
-      <div className={styles.heroAccent} />
+      <div className={styles.heroSpotlight} style={{ opacity: 0.4 }} />
+      <div className={styles.heroWave} style={{ opacity: 0.3 }} />
+      <div className={styles.heroRays} style={{ opacity: 0.2 }} />
+      <div className={styles.heroNoise} style={{ opacity: 0.5 }} />
+      <div className={styles.heroAccent} style={{ opacity: 0.3 }} />
       <div className={styles.heroShadow} />
       <div className={styles.heroBlend} />
 
