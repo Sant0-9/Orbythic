@@ -103,7 +103,7 @@ const faqs = [
 
 export default function PricingPage() {
   return (
-    <div className="bg-cosmic-deep">
+    <div className="bg-black">
       <div className="mx-auto flex max-w-7xl flex-col gap-24 px-4 py-24 sm:px-6 lg:px-8">
         <ScrollReveal>
           <SectionHeader

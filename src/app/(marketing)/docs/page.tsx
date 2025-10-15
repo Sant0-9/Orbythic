@@ -137,7 +137,7 @@ const popularTopics = [
 
 export default function DocsPage() {
   return (
-    <div className="bg-cosmic-deep">
+    <div className="bg-black">
       <div className="mx-auto flex max-w-7xl flex-col gap-24 px-4 py-24 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Documentation"

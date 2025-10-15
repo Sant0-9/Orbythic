@@ -3,7 +3,7 @@ import { Home, Search } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-cosmic-deep flex items-center justify-center px-4">
+    <div className="min-h-screen bg-black flex items-center justify-center px-4">
       <div className="max-w-2xl text-center space-y-8">
         <div className="space-y-4">
           <h1 className="text-8xl font-bold text-gradient">404</h1>
