@@ -78,14 +78,14 @@
   height: 170%;
   pointer-events: none;
   background:
-    repeating-linear-gradient(-62deg, rgba(255, 206, 140, 0.28) 0 12%, rgba(255, 206, 140, 0) 12% 24%),
-    repeating-linear-gradient(-58deg, rgba(255, 190, 92, 0.22) 0 16%, rgba(255, 190, 92, 0) 16% 32%);
+    repeating-linear-gradient(-62deg, rgba(255, 206, 140, 0.18) 0 10%, rgba(255, 206, 140, 0) 10% 22%),
+    repeating-linear-gradient(-58deg, rgba(255, 190, 92, 0.14) 0 14%, rgba(255, 190, 92, 0) 14% 30%);
   background-size: 160% 160%, 140% 140%;
   mix-blend-mode: screen;
-  opacity: 0.6;
-  filter: blur(32px);
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0.08) 70%, transparent 100%);
-  animation: heroRayMotion 14s ease-in-out infinite;
+  opacity: 0.38;
+  filter: blur(38px);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 5%, rgba(0, 0, 0, 0.04) 70%, transparent 100%);
+  animation: heroRayMotion 18s ease-in-out infinite;
 }
 
 .heroRays::after {
@@ -137,15 +137,15 @@
 @keyframes heroRayMotion {
   0% {
     background-position: 0% 0%, 100% 20%;
-    transform: translateY(-6%) rotate(-8deg) scale(1.02);
+    transform: translateY(-4%) rotate(-8deg) scale(1.02);
   }
   50% {
-    background-position: 70% 50%, 20% 60%;
-    transform: translateY(4%) rotate(-3deg) scale(1.06);
+    background-position: 65% 45%, 25% 60%;
+    transform: translateY(3%) rotate(-4deg) scale(1.05);
   }
   100% {
     background-position: 0% 0%, 100% 20%;
-    transform: translateY(-6%) rotate(-8deg) scale(1.02);
+    transform: translateY(-4%) rotate(-8deg) scale(1.02);
   }
 }
 
