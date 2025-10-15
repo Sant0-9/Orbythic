@@ -12,6 +12,7 @@ export default function Hero() {
       <div className={styles.heroBackground} />
       <div className={styles.heroGrid} />
       <div className={styles.heroSpotlight} />
+      <div className={styles.heroRays} />
       <div className={styles.heroNoise} />
       <div className={styles.heroAccent} />
 
