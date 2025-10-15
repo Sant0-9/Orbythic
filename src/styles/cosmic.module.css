@@ -43,11 +43,11 @@
 .heroNoise {
   position: absolute;
   inset: 0;
-  opacity: 0.12;
+  opacity: 0.1;
   pointer-events: none;
   mix-blend-mode: screen;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
-  animation: heroNoiseShift 14s linear infinite;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+  animation: heroNoiseShift 16s linear infinite;
   will-change: background-position;
 }
 
@@ -77,14 +77,14 @@
   inset: -19% -24% -12%;
   pointer-events: none;
   background:
-    radial-gradient(160% 110% at 50% -50%, rgba(255, 196, 120, 0.28), transparent 72%),
-    radial-gradient(150% 120% at 46% -40%, rgba(255, 166, 82, 0.18), transparent 72%),
-    radial-gradient(150% 120% at 54% -40%, rgba(255, 166, 82, 0.18), transparent 72%);
+    radial-gradient(165% 118% at 50% -52%, rgba(255, 205, 138, 0.42), transparent 74%),
+    radial-gradient(150% 125% at 46% -40%, rgba(255, 176, 92, 0.24), transparent 74%),
+    radial-gradient(150% 125% at 54% -40%, rgba(255, 176, 92, 0.24), transparent 74%);
   mix-blend-mode: screen;
-  filter: blur(70px);
-  opacity: 0.34;
+  filter: blur(68px);
+  opacity: 0.42;
   transform: translate3d(0, 0, 0) scale(1.05);
-  animation: heroWaveBreath 32s ease-in-out infinite;
+  animation: heroWaveBreath 30s ease-in-out infinite;
   will-change: transform, opacity;
 }
 
@@ -93,13 +93,13 @@
   inset: -12% -26% -6%;
   pointer-events: none;
   background-image:
-    radial-gradient(120% 90% at 50% -32%, rgba(255, 200, 130, 0.18), transparent 68%),
-    repeating-linear-gradient(118deg, rgba(255, 190, 110, 0.14) 0 16px, transparent 16px 34px),
-    repeating-linear-gradient(62deg, rgba(255, 175, 90, 0.08) 0 20px, transparent 20px 38px);
+    radial-gradient(120% 90% at 50% -34%, rgba(255, 205, 140, 0.22), transparent 70%),
+    repeating-linear-gradient(118deg, rgba(255, 185, 105, 0.16) 0 16px, transparent 16px 34px),
+    repeating-linear-gradient(62deg, rgba(255, 170, 92, 0.1) 0 20px, transparent 20px 38px);
   background-size: 160% 160%, 220% 220%, 180% 180%;
   background-position: center, 0% 0%, 0% 0%;
   mix-blend-mode: screen;
-  opacity: 0.22;
+  opacity: 0.26;
   filter: blur(82px);
   animation: heroCausticDrift 36s ease-in-out infinite;
   will-change: background-position, opacity;
@@ -113,13 +113,13 @@
   height: 175%;
   pointer-events: none;
   background:
-    linear-gradient(210deg, rgba(255, 198, 126, 0.16) 0%, rgba(255, 198, 126, 0.02) 55%),
-    linear-gradient(150deg, rgba(255, 174, 86, 0.1) 25%, rgba(255, 174, 86, 0.02) 70%);
+    linear-gradient(210deg, rgba(255, 198, 126, 0.22) 0%, rgba(255, 198, 126, 0.04) 55%),
+    linear-gradient(150deg, rgba(255, 174, 86, 0.16) 25%, rgba(255, 174, 86, 0.03) 70%);
   mix-blend-mode: screen;
-  opacity: 0.18;
-  filter: blur(80px);
+  opacity: 0.28;
+  filter: blur(72px);
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.1) 72%, transparent 100%);
-  animation: heroRaySweep 34s cubic-bezier(0.52, 0.31, 0.28, 0.88) infinite;
+  animation: heroRaySweep 32s cubic-bezier(0.52, 0.31, 0.28, 0.88) infinite;
   will-change: transform, opacity;
 }
 
@@ -127,9 +127,9 @@
   content: '';
   position: absolute;
   inset: -8% -6% 12%;
-  background: linear-gradient(180deg, rgba(255, 184, 102, 0.24) 0%, transparent 85%);
-  opacity: 0.32;
-  filter: blur(36px);
+  background: linear-gradient(180deg, rgba(255, 184, 102, 0.3) 0%, transparent 85%);
+  opacity: 0.38;
+  filter: blur(34px);
 }
 
 .heroAccent {
