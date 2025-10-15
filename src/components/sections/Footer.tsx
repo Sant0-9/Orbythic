@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Rocket, Github, Linkedin, Twitter } from 'lucide-react';
+import Image from 'next/image';
+import { Github, Linkedin, Twitter } from 'lucide-react';
 
 const footerNavigation = {
   product: [
@@ -42,10 +43,15 @@ export default function Footer() {
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center space-x-2 group">
-              <div className="relative">
-                <Rocket className="h-8 w-8 text-nebula-purple group-hover:text-stellar-blue transition-colors duration-300" />
-                <div className="absolute inset-0 bg-nebula-purple/20 rounded-full blur-md group-hover:bg-stellar-blue/20 transition-colors duration-300" />
+            <Link href="/" className="flex items-center space-x-3 group">
+              <div className="relative h-10 w-10">
+                <Image
+                  src="/logo.svg"
+                  alt="Orbythic Logo"
+                  width={40}
+                  height={40}
+                  className="group-hover:opacity-80 transition-opacity duration-300"
+                />
               </div>
               <span className="text-xl font-bold text-starlight">Orbythic</span>
             </Link>

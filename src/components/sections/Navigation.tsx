@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Rocket } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
 
 const navigation = [
@@ -40,10 +41,16 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="relative">
-              <Rocket className="h-8 w-8 text-nebula-purple group-hover:text-stellar-blue transition-colors duration-300" />
-              <div className="absolute inset-0 bg-nebula-purple/20 rounded-full blur-md group-hover:bg-stellar-blue/20 transition-colors duration-300" />
+          <Link href="/" className="flex items-center space-x-3 group">
+            <div className="relative h-10 w-10">
+              <Image
+                src="/logo.svg"
+                alt="Orbythic Logo"
+                width={40}
+                height={40}
+                className="group-hover:opacity-80 transition-opacity duration-300"
+                priority
+              />
             </div>
             <span className="text-xl font-bold text-starlight group-hover:text-gradient transition-colors duration-300">
               Orbythic

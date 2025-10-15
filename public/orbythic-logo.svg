@@ -1,0 +1,13 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Orbital Ring 1 -->
+  <ellipse cx="205" cy="512" rx="145" ry="445" stroke="white" stroke-width="12" fill="none" transform="rotate(-35 205 512)"/>
+
+  <!-- Orbital Ring 2 -->
+  <ellipse cx="205" cy="512" rx="145" ry="445" stroke="white" stroke-width="12" fill="none" transform="rotate(35 205 512)"/>
+
+  <!-- Center Planet -->
+  <circle cx="205" cy="512" r="45" fill="white"/>
+
+  <!-- Text ORBYTHIC -->
+  <text x="380" y="560" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">ORBYTHIC</text>
+</svg>

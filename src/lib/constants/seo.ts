@@ -1,4 +1,5 @@
 export const siteUrl = 'https://orbythic.com';
+export const logoUrl = `${siteUrl}/orbythic-logo.svg`;
 
 export const defaultSEO = {
   titleTemplate: '%s | Orbythic',
