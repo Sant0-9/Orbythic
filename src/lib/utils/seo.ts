@@ -31,7 +31,7 @@ export function getPageMetadata(page: keyof typeof pageSEO, overrides?: Partial<
   };
 }
 
-export function generateStructuredData(type: 'organization' | 'website' | 'softwareApplication') {
+export function generateStructuredData(type: 'organization' | 'website' | 'softwareApplication' | 'breadcrumb' | 'faq', data?: Record<string, unknown>) {
   const structuredData = {
     organization: {
       '@context': 'https://schema.org',
@@ -85,7 +85,52 @@ export function generateStructuredData(type: 'organization' | 'website' | 'softw
         name: 'Orbythic',
       },
     },
+    breadcrumb: data || {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://orbythic.com',
+        },
+      ],
+    },
+    faq: data || {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [],
+    },
   };
 
   return structuredData[type];
+}
+
+export function generateBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+export function generateFAQSchema(faqs: Array<{ question: string; answer: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
 }
