@@ -1,113 +1,118 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { BookOpen, Lightbulb, Rocket, Target } from 'lucide-react';
+import { Calendar, Clock, User } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import { getPageMetadata } from '@/lib/utils/seo';
+import { getAllPosts } from '@/lib/blog';
 
 export const metadata: Metadata = getPageMetadata('blog');
 
-const upcomingTopics = [
-  {
-    title: 'Building Quasera: The Vision Behind 30+ AI Learning Agents',
-    description: 'How we&apos;re architecting a multi-agent system that understands how you learn, adapts in real-time, and orchestrates your entire academic journey.',
-    category: 'Product Development',
-    icon: Rocket,
-  },
-  {
-    title: 'The Science of Adaptive Learning: From Research to Reality',
-    description: 'Exploring the cognitive science, AI research, and educational psychology that powers Quasera&apos;s learning intelligence.',
-    category: 'Learning Science',
-    icon: Lightbulb,
-  },
-  {
-    title: 'Academic Integrity in the Age of AI',
-    description: 'Why we built academic integrity into Quasera&apos;s core architecture, and how AI can enhance learning without enabling shortcuts.',
-    category: 'Ed-Tech Insights',
-    icon: Target,
-  },
-  {
-    title: 'The Real Student Experience: Challenges & Solutions',
-    description: 'Behind the scenes of building Quasera as a student developer: the problems I faced, the solutions I&apos;m creating, and lessons learned.',
-    category: 'Founder Notes',
-    icon: BookOpen,
-  },
-];
-
 export default function BlogPage() {
+  const posts = getAllPosts();
+
   return (
     <div className="bg-black">
       <div className="mx-auto flex max-w-7xl flex-col gap-24 px-4 py-24 sm:px-6 lg:px-8">
         <ScrollReveal>
           <SectionHeader
             eyebrow="Blog"
-            title="Building the Future of AI-Powered Learning"
-            subtitle="Follow our journey as we develop Quasera and explore the intersection of artificial intelligence, education, and student success. Written by Shifat Islam Santo, Founder & Developer."
+            title="Insights on AI-Powered Learning"
+            subtitle="Follow our journey as we build Quasera and explore the intersection of artificial intelligence, education, and student success."
           />
         </ScrollReveal>
 
-        <ScrollReveal>
-          <div className="rounded-3xl border border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-orange-500/5 p-8 md:p-12">
-            <div className="flex flex-col items-center gap-6 text-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-500/10">
-                <Rocket className="h-8 w-8 text-amber-400" />
-              </div>
-              <div>
-                <h2 className="text-3xl font-bold text-starlight">Blog Coming Soon</h2>
-                <p className="mt-3 text-lg text-starlight/70">
-                  We&apos;re currently focused on building Quasera and preparing for early access launch.
-                </p>
-                <p className="mt-2 text-starlight/60">
-                  Our blog will launch alongside the platform, featuring insights on AI-powered learning,
-                  product development updates, and the future of education technology.
-                </p>
+        {posts.length === 0 ? (
+          <ScrollReveal>
+            <div className="rounded-3xl border border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-orange-500/5 p-8 md:p-12">
+              <div className="flex flex-col items-center gap-6 text-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-500/10">
+                  <Calendar className="h-8 w-8 text-amber-400" />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-bold text-starlight">Blog Coming Soon</h2>
+                  <p className="mt-3 text-lg text-starlight/70">
+                    We are currently focused on building Quasera and preparing for early access launch.
+                  </p>
+                  <p className="mt-2 text-starlight/60">
+                    Our blog will launch alongside the platform, featuring insights on AI-powered learning,
+                    product development updates, and the future of education technology.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        ) : (
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            {posts.map((post, index) => (
+              <ScrollReveal key={post.slug} delay={index * 0.1}>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="group relative block overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-500 hover:-translate-y-1 hover:border-nebula-purple/40 hover:shadow-[0_30px_80px_rgba(10,14,39,0.55)]"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-nebula-purple/5 to-stellar-blue/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-        <ScrollReveal>
-          <section>
-            <div className="mb-10">
-              <h3 className="text-2xl font-bold text-starlight">Topics We&apos;ll Cover</h3>
-              <p className="mt-2 text-starlight/70">
-                Get ready for deep dives into the technology, science, and vision behind Quasera.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              {upcomingTopics.map((topic) => {
-                const IconComponent = topic.icon;
-                return (
-                  <div
-                    key={topic.title}
-                    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition-all duration-500 hover:-translate-y-1 hover:border-nebula-purple/40 hover:shadow-[0_30px_80px_rgba(10,14,39,0.55)]"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-nebula-purple/5 to-stellar-blue/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                    <div className="relative">
-                      <div className="flex items-start gap-4">
-                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-nebula-purple/10 transition-colors duration-300 group-hover:bg-nebula-purple/20">
-                          <IconComponent className="h-6 w-6 text-nebula-purple" />
-                        </div>
-                        <div className="flex-1">
-                          <span className="inline-block rounded-full bg-stellar-blue/10 px-3 py-1 text-xs font-medium text-stellar-blue">
-                            {topic.category}
-                          </span>
-                          <h4 className="mt-3 text-xl font-semibold text-starlight transition-colors duration-300 group-hover:text-nebula-purple">
-                            {topic.title}
-                          </h4>
-                          <p className="mt-2 text-sm text-starlight/70">
-                            {topic.description}
-                          </p>
-                        </div>
+                  <div className="relative p-8">
+                    <div className="mb-4 flex items-center gap-3">
+                      <span className="inline-block rounded-full bg-nebula-purple/10 px-3 py-1 text-xs font-medium text-nebula-purple">
+                        {post.category}
+                      </span>
+                      <div className="flex items-center gap-2 text-xs text-starlight/60">
+                        <Clock className="h-3 w-3" />
+                        <span>{post.readTime}</span>
                       </div>
                     </div>
+
+                    <h3 className="text-2xl font-bold text-starlight transition-colors duration-300 group-hover:text-nebula-purple">
+                      {post.title}
+                    </h3>
+
+                    <p className="mt-3 text-starlight/70">
+                      {post.excerpt}
+                    </p>
+
+                    <div className="mt-6 flex items-center gap-4 border-t border-white/10 pt-4">
+                      <div className="flex items-center gap-2">
+                        <User className="h-4 w-4 text-starlight/60" />
+                        <div className="text-sm">
+                          <p className="font-medium text-starlight">{post.author}</p>
+                          {post.authorRole && (
+                            <p className="text-xs text-starlight/60">{post.authorRole}</p>
+                          )}
+                        </div>
+                      </div>
+                      <div className="ml-auto flex items-center gap-2 text-xs text-starlight/60">
+                        <Calendar className="h-3 w-3" />
+                        <span>{new Date(post.date).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        })}</span>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 flex items-center gap-2 text-sm font-medium text-nebula-purple">
+                      <span>Read article</span>
+                      <svg
+                        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </div>
                   </div>
-                );
-              })}
-            </div>
-          </section>
-        </ScrollReveal>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+        )}
 
         <ScrollReveal>
           <section className="rounded-3xl border border-white/15 bg-white/[0.04] px-8 py-12">
@@ -141,7 +146,7 @@ export default function BlogPage() {
 
         <ScrollReveal>
           <section className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] px-8 py-12 text-center">
-            <h3 className="text-2xl font-bold text-starlight">In the Meantime</h3>
+            <h3 className="text-2xl font-bold text-starlight">Join the Journey</h3>
             <p className="mt-3 text-starlight/70">
               Learn more about Quasera and join our early access waitlist
             </p>
