@@ -153,7 +153,7 @@ export default function QuaseraPage() {
             />
           </ScrollReveal>
 
-          <StaggerReveal className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-4">
+          <StaggerReveal className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-4" delay={0.2}>
             {successMetrics.map((metric) => (
               <StatHighlight
                 key={metric.label}

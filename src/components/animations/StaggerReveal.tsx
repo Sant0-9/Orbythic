@@ -45,9 +45,10 @@ export default function StaggerReveal({
       ease: 'power3.out',
       scrollTrigger: {
         trigger: container,
-        start: 'top 80%',
-        end: 'bottom 20%',
-        toggleActions: 'play none none reverse',
+        start: 'top 90%',
+        end: 'bottom 10%',
+        toggleActions: 'play none none none',
+        once: false,
       },
     });
 
