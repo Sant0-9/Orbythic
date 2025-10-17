@@ -145,13 +145,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 rounded-2xl border border-white/15 bg-white/[0.05] px-6 py-6 shadow-[0_25px_80px_rgba(15,23,42,0.35)] backdrop-blur-2xl">
-          <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
+          <div className="flex flex-col items-center justify-center gap-4 text-center">
             <p className="text-sm text-starlight/80">
               &copy; {new Date().getFullYear()} Orbythic. All rights reserved.
             </p>
-            <div className="flex items-center gap-6 text-sm text-starlight/80">
-              <span>Built with Next.js, Tailwind CSS, and Framer Motion</span>
-            </div>
           </div>
         </div>
       </div>
