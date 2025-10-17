@@ -18,7 +18,6 @@ import SectionHeader from '@/components/ui/SectionHeader';
 import StatHighlight from '@/components/ui/StatHighlight';
 import { getPageMetadata } from '@/lib/utils/seo';
 import ScrollReveal from '@/components/animations/ScrollReveal';
-import StaggerReveal from '@/components/animations/StaggerReveal';
 
 export const metadata: Metadata = getPageMetadata('solutions');
 
@@ -188,16 +187,17 @@ export default function SolutionsPage() {
           />
         </ScrollReveal>
 
-        <div className="space-y-6">
-          <ScrollReveal>
-            <h2 className="text-3xl font-bold text-starlight">Who We Serve</h2>
-            <p className="mt-2 text-lg text-starlight/80">
-              From individual learners to large institutions, Quasera adapts to meet diverse educational needs while maintaining the highest standards of academic integrity and learning effectiveness.
-            </p>
-          </ScrollReveal>
+        <ScrollReveal>
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-bold text-starlight">Who We Serve</h2>
+              <p className="mt-2 text-lg text-starlight/80">
+                From individual learners to large institutions, Quasera adapts to meet diverse educational needs while maintaining the highest standards of academic integrity and learning effectiveness.
+              </p>
+            </div>
 
-          <StaggerReveal className="grid grid-cols-1 gap-8 md:grid-cols-2" delay={0.2}>
-            {audiences.map((audience) => (
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              {audiences.map((audience) => (
               <article
                 key={audience.name}
                 className="group flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm shadow-[0_30px_80px_rgba(10,14,39,0.55)] transition-all duration-500 hover:-translate-y-2 hover:border-nebula-purple/50 hover:bg-white/[0.06] hover:shadow-[0_40px_100px_rgba(148,163,255,0.3)]"
@@ -228,20 +228,22 @@ export default function SolutionsPage() {
                   {audience.cta}
                 </Link>
               </article>
-            ))}
-          </StaggerReveal>
-        </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
 
-        <div className="space-y-8">
-          <ScrollReveal>
-            <h2 className="text-3xl font-bold text-starlight">Core Capabilities</h2>
-            <p className="mt-2 text-lg text-starlight/80">
-              Quasera combines cutting-edge AI technology with evidence-based learning science to create a comprehensive learning ecosystem that adapts to every student&apos;s unique needs.
-            </p>
-          </ScrollReveal>
+        <ScrollReveal>
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-bold text-starlight">Core Capabilities</h2>
+              <p className="mt-2 text-lg text-starlight/80">
+                Quasera combines cutting-edge AI technology with evidence-based learning science to create a comprehensive learning ecosystem that adapts to every student&apos;s unique needs.
+              </p>
+            </div>
 
-          <StaggerReveal className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            {coreCapabilities.map((capability) => (
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+              {coreCapabilities.map((capability) => (
               <article
                 key={capability.title}
                 className="group rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-nebula-purple/50 hover:bg-white/[0.06] hover:shadow-[0_30px_80px_rgba(148,163,255,0.3)]"
@@ -262,9 +264,10 @@ export default function SolutionsPage() {
                   ))}
                 </ul>
               </article>
-            ))}
-          </StaggerReveal>
-        </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
 
         <ScrollReveal>
           <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-nebula-purple/10 to-transparent p-10 shadow-[0_40px_100px_rgba(99,102,241,0.15)]">
@@ -290,25 +293,27 @@ export default function SolutionsPage() {
           </div>
         </ScrollReveal>
 
-        <div className="space-y-8">
-          <ScrollReveal>
-            <h2 className="text-3xl font-bold text-starlight">Proven Results</h2>
-            <p className="mt-2 text-lg text-starlight/80">
-              Quasera delivers measurable improvements in learning outcomes, retention, and student wellbeing based on real-world deployments and evidence-based learning science.
-            </p>
-          </ScrollReveal>
+        <ScrollReveal>
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-bold text-starlight">Proven Results</h2>
+              <p className="mt-2 text-lg text-starlight/80">
+                Quasera delivers measurable improvements in learning outcomes, retention, and student wellbeing based on real-world deployments and evidence-based learning science.
+              </p>
+            </div>
 
-          <StaggerReveal className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4" delay={0.15}>
-            {successMetrics.map((metric) => (
-              <StatHighlight
-                key={metric.label}
-                value={metric.value}
-                label={metric.label}
-                description={metric.description}
-              />
-            ))}
-          </StaggerReveal>
-        </div>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+              {successMetrics.map((metric) => (
+                <StatHighlight
+                  key={metric.label}
+                  value={metric.value}
+                  label={metric.label}
+                  description={metric.description}
+                />
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
 
         <ScrollReveal>
           <div className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14 backdrop-blur-xl shadow-[0_40px_100px_rgba(10,14,39,0.6)]">
