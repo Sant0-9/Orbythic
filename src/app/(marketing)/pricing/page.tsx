@@ -1,103 +1,131 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Check, Shield, Star, Target } from 'lucide-react';
+import { Check, Sparkles, Star, Users, Zap } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import StatHighlight from '@/components/ui/StatHighlight';
 import { getPageMetadata } from '@/lib/utils/seo';
 import ScrollReveal from '@/components/animations/ScrollReveal';
-import StaggerReveal from '@/components/animations/StaggerReveal';
 
 export const metadata: Metadata = getPageMetadata('pricing');
 
 const plans = [
   {
-    name: 'Launch',
-    price: 'Starting at $499/mo',
-    cadence: 'Ideal for emerging programs and pilot cohorts',
+    name: 'Student',
+    badge: 'Most Popular',
+    tagline: 'Perfect for individual learners',
     description:
-      'Designed for institutions and teams validating new learning experiences. Includes foundational automation, adaptive content delivery, and success coaching.',
+      'Get personalized AI-powered learning support with access to all 30+ specialized agents, adaptive scheduling, and comprehensive study tools.',
     features: [
-      'Up to 500 active learners per month',
-      'Adaptive mission builder with core templates',
-      'Two live strategy workshops per quarter',
-      'Insights dashboard with weekly summary reports',
-      'Support response within 24 business hours',
+      'Access to all 30+ AI learning agents',
+      'Adaptive Schedule Orchestrator with real-time optimization',
+      'Knowledge Graph Intelligence for concept mastery',
+      'Mental Wellness Guardian with stress tracking',
+      'Academic Integrity guidance and audit trails',
+      'Unlimited practice quizzes and study sessions',
+      'Research Assistant with 200M+ papers access',
+      'Mobile app access for learning on the go',
     ],
-    cta: 'Start a pilot',
-    highlighted: false,
+    cta: 'Join Early Access Waitlist',
+    highlighted: true,
+    earlyAccessBenefit: 'Early adopters get lifetime discount',
   },
   {
-    name: 'Scale',
-    price: 'Starting at $1,800/mo',
-    cadence: 'Purpose-built for multi-program operations',
+    name: 'Institution',
+    badge: 'For Universities',
+    tagline: 'Transform student success at scale',
     description:
-      'Everything in Launch plus advanced automation, expanded integrations, and collaborative tooling for program directors and instructional designers.',
+      'Deploy Quasera across your institution with faculty dashboards, LMS integration, and comprehensive analytics to improve outcomes and reduce dropout rates.',
     features: [
-      'Up to 5,000 active learners per month',
-      'Advanced scenario assessments and performance alerts',
-      'Dedicated implementation manager and quarterly roadmap reviews',
-      'Workflow automation across Slack, Teams, and email',
-      'Custom data exports and embedded analytics',
+      'Everything in Student plan for unlimited students',
+      'Faculty and advisor dashboards with real-time insights',
+      'Seamless LMS integration (Canvas, Moodle, Blackboard)',
+      'Custom branding and institutional policies',
+      'Advanced analytics and reporting tools',
+      'Dedicated implementation and training support',
+      'Priority support with 24/7 availability',
+      'WCAG accessibility compliance',
     ],
-    cta: 'Talk with our team',
-    highlighted: true,
+    cta: 'Request Institution Pricing',
+    highlighted: false,
+    earlyAccessBenefit: 'Pilot programs get 6 months free',
   },
   {
     name: 'Enterprise',
-    price: 'Custom pricing',
-    cadence: 'For global institutions and regulated industries',
+    badge: 'Custom Solution',
+    tagline: 'For multi-campus and global organizations',
     description:
-      'Bring Quasera across campuses or business units with enterprise-grade governance, dedicated success pods, and bespoke integrations aligned to your security requirements.',
+      'Enterprise-grade deployment with custom integrations, dedicated infrastructure, compliance support, and white-glove service for large-scale implementations.',
     features: [
-      'Unlimited learners and workspaces',
-      'Compliance packs for SOC 2, HIPAA, and FERPA requirements',
-      'Private deployment options and dedicated infrastructure choices',
-      'Joint success planning with executive and product teams',
-      'On-site change management support when required',
+      'Everything in Institution plan',
+      'Private cloud deployment options',
+      'Custom AI agent development and training',
+      'SOC 2, HIPAA, and FERPA compliance packs',
+      'Single sign-on (SSO) and advanced security',
+      'Dedicated success team and technical account manager',
+      'Custom SIS and HRIS integrations',
+      'On-site training and change management support',
     ],
-    cta: 'Schedule an executive briefing',
+    cta: 'Schedule Enterprise Consultation',
     highlighted: false,
+    earlyAccessBenefit: 'Design partner benefits available',
   },
 ];
 
-const addOns = [
+const valueProps = [
   {
-    title: 'Instructional Design Sprints',
-    description:
-      'Partner with Orbythic specialists to modernize curriculum assets, convert static materials into adaptive experiences, and design assessment blueprints.',
+    title: 'Early Adopter Benefits',
+    description: 'Be among the first to experience AI-powered learning. Early access members get exclusive lifetime discounts, priority feature requests, and direct input into product development.',
+    icon: Star,
   },
   {
-    title: 'Analytics Enablement',
-    description:
-      'Accelerate data adoption with custom dashboards, stakeholder workshops, and executive reporting templates tailored to your organization.',
+    title: 'Risk-Free Trial',
+    description: 'All plans include a 30-day satisfaction guarantee. If Quasera doesn&apos;t dramatically improve your learning outcomes, we&apos;ll refund your investment in full.',
+    icon: Sparkles,
   },
   {
-    title: 'Change Management Programs',
-    description:
-      'Drive adoption with cross-functional rollout plans, faculty training, communication kits, and feedback loops to keep momentum after launch.',
+    title: 'Flexible Scaling',
+    description: 'Start with individual access and scale to institution-wide deployment. Upgrade or adjust your plan as your needs evolve with no long-term commitments.',
+    icon: Users,
   },
+  {
+    title: 'Continuous Innovation',
+    description: 'Your subscription includes all future AI agent updates, new features, and capability enhancements at no additional cost. We&apos;re constantly improving.',
+    icon: Zap,
+  },
+];
+
+const successMetrics = [
+  { value: '40%', label: 'Faster mastery', description: 'Students learn concepts 40% faster with AI guidance' },
+  { value: '60%', label: 'Better retention', description: 'Knowledge retention improves by 60% after 3 months' },
+  { value: '80%', label: 'Reduced failures', description: 'Course failure rates drop by up to 80%' },
+  { value: '30%', label: 'Less stress', description: 'Student stress levels decrease by 30% on average' },
 ];
 
 const faqs = [
   {
-    question: 'How do you determine pricing for each tier?',
+    question: 'When will pricing be finalized?',
     answer:
-      'Pricing is based on active learner volume, the number of connected systems, and the level of operational support your team requires. We run a quick discovery session to model your usage and recommend the tier that offers the best value.',
+      'We&apos;re currently in our early access phase and working with pilot institutions to finalize pricing that delivers exceptional value. Early access members will receive special lifetime pricing locked in before general availability. Join our waitlist to be notified when enrollment opens.',
   },
   {
-    question: 'Can we migrate from another platform without downtime?',
+    question: 'What makes Quasera worth the investment?',
     answer:
-      'Yes. Our implementation team orchestrates phased migrations with sandbox validation, content QA, and learner communication plans to avoid disruption. We also provide data archiving and compliance documentation for existing systems.',
+      'Quasera replaces the need for multiple tutoring services, study apps, and mental health resources with a single comprehensive platform. Students see 40% faster mastery, 60% better retention, and dramatic reductions in stress - outcomes that translate to better grades, faster graduation, and long-term academic success.',
   },
   {
-    question: 'What support is included with each plan?',
+    question: 'Can institutions try Quasera before committing?',
     answer:
-      'Launch customers receive access to our support desk and monthly office hours. Scale adds a dedicated implementation manager, quarterly strategy reviews, and proactive monitoring. Enterprise customers partner with an embedded success pod covering architecture, product, and change management.',
+      'Yes! We offer pilot programs for institutions to test Quasera with a cohort of students for one semester. Pilot participants receive 6 months free after the pilot period ends, and get priority access to new features and dedicated implementation support.',
   },
   {
-    question: 'Do you offer discounts for non-profits or academic consortia?',
+    question: 'Is financial aid or student pricing available?',
     answer:
-      'We believe in equitable access to transformative learning. Talk with our team about volume-based pricing, grant partnerships, and flexible billing structures for mission-driven organizations.',
+      'We&apos;re committed to making AI-powered learning accessible to all students. We&apos;re developing scholarship programs, institutional partnerships, and need-based pricing options. Join our waitlist to learn about financial assistance programs as they become available.',
+  },
+  {
+    question: 'What payment methods do you accept?',
+    answer:
+      'For individual students, we&apos;ll accept all major credit cards, PayPal, and offer monthly or annual billing options. Institutions can pay via purchase order, wire transfer, or invoice. Enterprise customers receive flexible contract terms tailored to their procurement requirements.',
   },
 ];
 
@@ -107,142 +135,209 @@ export default function PricingPage() {
       <div className="mx-auto flex max-w-7xl flex-col gap-24 px-4 py-24 sm:px-6 lg:px-8">
         <ScrollReveal>
           <SectionHeader
-            eyebrow="Pricing"
-            title="Invest in adaptive learning that scales with your institution"
-            subtitle="Every plan starts with a collaborative roadmap so you launch with confidence. Choose the level of automation, integrations, and strategic partnership that best fits your growth stage."
+            eyebrow="Early Access Pricing"
+            title="Be Among the First to Transform Learning with AI"
+            subtitle="Quasera is launching soon with exclusive benefits for early adopters. Join our waitlist to lock in special lifetime pricing and help shape the future of AI-powered education."
           />
         </ScrollReveal>
 
-          <StaggerReveal className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {plans.map((plan) => (
-              <article
-                key={plan.name}
-                className={`flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-8 transition-transform duration-300 hover:-translate-y-1 hover:border-nebula-purple/40 ${
-                  plan.highlighted ? 'shadow-[0_40px_120px_rgba(99,102,241,0.25)]' : 'shadow-[0_30px_80px_rgba(10,14,39,0.55)]'
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-2xl font-semibold text-starlight">{plan.name}</h3>
-                  {plan.highlighted ? <Star className="h-6 w-6 text-nebula-purple" aria-hidden /> : null}
-                </div>
-                <p className="mt-4 text-lg font-semibold text-starlight">{plan.price}</p>
-                <p className="text-sm uppercase tracking-wide text-starlight/50">
-                  {plan.cadence}
-                </p>
-                <p className="mt-6 text-starlight/70">
-                  {plan.description}
-                </p>
-                <ul className="mt-8 space-y-3 text-starlight/65">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-nebula-purple" aria-hidden />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+        <ScrollReveal>
+          <div className="rounded-3xl border border-nebula-purple/30 bg-gradient-to-br from-nebula-purple/10 to-transparent p-8 text-center shadow-[0_40px_100px_rgba(99,102,241,0.2)]">
+            <div className="mx-auto max-w-3xl">
+              <div className="inline-flex items-center gap-2 rounded-full bg-nebula-purple/20 px-4 py-2 text-sm font-semibold text-nebula-purple">
+                <Sparkles className="h-4 w-4" />
+                Limited Early Access Spots Available
+              </div>
+              <h2 className="mt-6 text-3xl font-bold text-starlight">
+                Lock in Lifetime Pricing - Only for Early Adopters
+              </h2>
+              <p className="mt-4 text-lg text-starlight/80">
+                The first 1,000 students who join our early access program will receive a lifetime discount of up to 50% off regular pricing.
+                Plus, you&apos;ll get direct access to our product team and priority feature requests.
+              </p>
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link
                   href="/contact"
-                  className={`mt-10 inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-300 ${
-                    plan.highlighted
-                      ? 'bg-cosmic-gradient text-white hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(99,102,241,0.35)]'
-                      : 'border border-white/15 text-starlight hover:border-nebula-purple/40 hover:bg-white/[0.05]'
-                  }`}
+                  className="inline-flex items-center justify-center rounded-xl bg-cosmic-gradient px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(99,102,241,0.45)]"
                 >
-                  {plan.cta}
+                  Join Waitlist - Reserve Your Spot
                 </Link>
-              </article>
-            ))}
-          </StaggerReveal>
-
-          <StaggerReveal className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <StatHighlight value="14 days" label="Average time to pilot launch" description="Kick off your first adaptive cohort in weeks, not months, with guided onboarding." />
-            <StatHighlight value="96%" label="Implementation satisfaction" description="Post-launch survey response across the last 40 deployments spanning higher-ed and workforce programs." />
-            <StatHighlight value="45%" label="Operational efficiency gain" description="Reduction in manual tasks for operations teams measured over the first two quarters." />
-          </StaggerReveal>
-
-          <ScrollReveal className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14">
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-semibold text-starlight">Strategic partnership from day one</h3>
-                <p className="text-starlight/70">
-                  Our team embeds with yours to define a measurement framework, configure automations, and establish governance practices that scale. The result is a shared operating rhythm that keeps programs agile while safeguarding compliance.
-                </p>
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <div className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.05] p-4">
-                    <Shield className="h-6 w-6 text-nebula-purple" aria-hidden />
-                    <div>
-                      <h4 className="text-base font-semibold text-starlight">Enterprise-grade security</h4>
-                      <p className="text-sm text-starlight/65">
-                        Data residency options, granular access controls, and regular third-party audits give security teams confidence.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.05] p-4">
-                    <Target className="h-6 w-6 text-nebula-purple" aria-hidden />
-                    <div>
-                      <h4 className="text-base font-semibold text-starlight">Outcome-first roadmaps</h4>
-                      <p className="text-sm text-starlight/65">
-                        We anchor every milestone to tangible learner, faculty, and business outcomes so success stays observable.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-6">
-                <h3 className="text-2xl font-semibold text-starlight">Optional add-ons</h3>
-                <p className="text-starlight/70">
-                  Extend your Quasera deployment with project-based services led by senior specialists. Each engagement is scoped with transparent milestones and knowledge transfer to your internal team.
-                </p>
-                <ul className="space-y-4 text-starlight/65">
-                  {addOns.map((addOn) => (
-                    <li key={addOn.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                      <h4 className="text-lg font-semibold text-starlight">{addOn.title}</h4>
-                      <p className="mt-2 text-sm">
-                        {addOn.description}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
+                <Link
+                  href="/solutions"
+                  className="inline-flex items-center justify-center rounded-xl border border-white/20 px-8 py-4 text-lg font-semibold text-starlight transition-all duration-300 hover:-translate-y-1 hover:border-nebula-purple/50 hover:bg-white/[0.06]"
+                >
+                  Learn More About Quasera
+                </Link>
               </div>
             </div>
-          </ScrollReveal>
+          </div>
+        </ScrollReveal>
 
-          <ScrollReveal className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14">
-            <h3 className="text-2xl font-semibold text-starlight">Frequently asked questions</h3>
-            <dl className="mt-8 space-y-6">
+        <ScrollReveal>
+          <div className="space-y-8">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-starlight">Choose Your Plan</h2>
+              <p className="mt-2 text-lg text-starlight/80">
+                Flexible options for individuals, institutions, and enterprises. All plans include access to our full suite of 30+ AI learning agents.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+              {plans.map((plan) => (
+                <article
+                  key={plan.name}
+                  className={`group flex h-full flex-col rounded-3xl border p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 ${
+                    plan.highlighted
+                      ? 'border-nebula-purple/50 bg-white/[0.06] shadow-[0_40px_120px_rgba(99,102,241,0.3)]'
+                      : 'border-white/10 bg-white/[0.03] shadow-[0_30px_80px_rgba(10,14,39,0.55)] hover:border-nebula-purple/30 hover:bg-white/[0.05]'
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="text-2xl font-semibold text-starlight">{plan.name}</h3>
+                      <p className="mt-1 text-sm text-starlight/60">{plan.tagline}</p>
+                    </div>
+                    {plan.highlighted && (
+                      <Star className="h-6 w-6 text-nebula-purple" fill="currentColor" aria-hidden="true" />
+                    )}
+                  </div>
+
+                  <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-nebula-purple/10 px-3 py-1 text-sm font-medium text-nebula-purple">
+                    {plan.badge}
+                  </div>
+
+                  <p className="mt-6 text-starlight/75">{plan.description}</p>
+
+                  <div className="my-6 rounded-xl border border-nebula-purple/20 bg-nebula-purple/5 p-4">
+                    <p className="text-center text-sm font-semibold text-nebula-purple">
+                      {plan.earlyAccessBenefit}
+                    </p>
+                  </div>
+
+                  <ul className="space-y-3 text-starlight/70">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3">
+                        <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-nebula-purple" aria-hidden="true" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    href="/contact"
+                    className={`mt-8 inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-300 ${
+                      plan.highlighted
+                        ? 'bg-cosmic-gradient text-white hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(99,102,241,0.35)]'
+                        : 'border border-white/15 text-starlight hover:-translate-y-0.5 hover:border-nebula-purple/50 hover:bg-white/[0.06] hover:shadow-[0_20px_50px_rgba(148,163,255,0.2)]'
+                    }`}
+                  >
+                    {plan.cta}
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="space-y-8">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-starlight">Proven Results</h2>
+              <p className="mt-2 text-lg text-starlight/80">
+                Real outcomes from our pilot programs and early testing
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+              {successMetrics.map((metric) => (
+                <StatHighlight
+                  key={metric.label}
+                  value={metric.value}
+                  label={metric.label}
+                  description={metric.description}
+                />
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 backdrop-blur-xl shadow-[0_40px_100px_rgba(10,14,39,0.6)]">
+            <h2 className="text-3xl font-bold text-starlight">Why Join Early Access?</h2>
+            <p className="mt-2 text-lg text-starlight/80">
+              Early adopters don&apos;t just get better pricing - they become part of shaping the future of AI-powered learning.
+            </p>
+
+            <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
+              {valueProps.map((prop) => (
+                <div
+                  key={prop.title}
+                  className="group flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-nebula-purple/40 hover:shadow-[0_20px_50px_rgba(148,163,255,0.2)]"
+                >
+                  <prop.icon className="h-8 w-8 flex-shrink-0 text-nebula-purple transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+                  <div>
+                    <h3 className="text-xl font-semibold text-starlight transition-colors duration-300 group-hover:text-white">
+                      {prop.title}
+                    </h3>
+                    <p className="mt-2 text-starlight/70 transition-colors duration-300 group-hover:text-starlight/80">
+                      {prop.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-14 backdrop-blur-xl shadow-[0_40px_100px_rgba(10,14,39,0.6)]">
+            <h3 className="text-3xl font-bold text-starlight">Frequently Asked Questions</h3>
+            <dl className="mt-10 space-y-6">
               {faqs.map((faq) => (
                 <div
                   key={faq.question}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-6"
+                  className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-all duration-300 hover:border-nebula-purple/30 hover:bg-white/[0.05]"
                 >
-                  <dt className="text-lg font-semibold text-starlight">{faq.question}</dt>
-                  <dd className="mt-3 text-starlight/65">{faq.answer}</dd>
+                  <dt className="text-lg font-semibold text-starlight transition-colors duration-300 group-hover:text-white">
+                    {faq.question}
+                  </dt>
+                  <dd className="mt-3 text-starlight/70 transition-colors duration-300 group-hover:text-starlight/80">
+                    {faq.answer}
+                  </dd>
                 </div>
               ))}
             </dl>
-          </ScrollReveal>
+          </div>
+        </ScrollReveal>
 
-          <ScrollReveal className="flex flex-col gap-6 rounded-3xl border border-white/15 bg-white/[0.04] px-8 py-12 text-center">
-            <h3 className="text-2xl font-semibold text-starlight">Ready to map pricing to your roadmap?</h3>
-            <p className="text-starlight/70">
-              Share your program goals, learner volume, and integration needs. We will assemble a tailored proposal within two business days, including implementation timeline and ROI projections.
-            </p>
-            <div className="flex flex-col justify-center gap-3 sm:flex-row">
+        <ScrollReveal>
+          <div className="flex flex-col gap-8 rounded-3xl border border-white/15 bg-gradient-to-br from-nebula-purple/10 via-stellar-blue/5 to-transparent px-8 py-12 text-center shadow-[0_40px_100px_rgba(99,102,241,0.2)] backdrop-blur-xl">
+            <div className="mx-auto max-w-2xl space-y-4">
+              <h3 className="text-3xl font-bold text-starlight">
+                Ready to Transform Your Learning Experience?
+              </h3>
+              <p className="text-lg text-starlight/80">
+                Join thousands of students and institutions on the waitlist. Be notified the moment early access opens
+                and secure your lifetime discount.
+              </p>
+            </div>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-cosmic-gradient px-6 py-3 text-base font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(99,102,241,0.35)]"
+                className="inline-flex items-center justify-center rounded-xl bg-cosmic-gradient px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(99,102,241,0.45)]"
               >
-                Connect with sales
+                Reserve Your Early Access Spot
               </Link>
               <Link
-                href="/docs"
-                className="inline-flex items-center justify-center rounded-xl border border-white/20 px-6 py-3 text-base font-semibold text-starlight transition-colors duration-300 hover:border-nebula-purple/40 hover:bg-white/[0.04]"
+                href="/quasera"
+                className="inline-flex items-center justify-center rounded-xl border border-white/20 px-8 py-4 text-lg font-semibold text-starlight transition-all duration-300 hover:-translate-y-1 hover:border-nebula-purple/50 hover:bg-white/[0.06] hover:shadow-[0_20px_50px_rgba(148,163,255,0.2)]"
               >
-                Explore technical docs
+                Explore All Features
               </Link>
             </div>
-          </ScrollReveal>
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
+    </div>
   );
 }
