@@ -44,10 +44,7 @@ const products = [
 
 export default function ProductShowcase() {
   return (
-    <section id="product-suite" className="relative isolate overflow-hidden bg-[#000104]">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-black/60 via-black/80 to-[#000104]/95" />
-      <div className="pointer-events-none absolute inset-x-[-20%] bottom-[-40%] h-[80%] bg-[radial-gradient(60%_60%_at_50%_0%,rgba(255,186,109,0.15),rgba(0,0,0,0.1)_70%,transparent_100%)] opacity-40 blur-3xl" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.85)_50%,#000104_100%)]" />
+    <section id="product-suite" className="relative isolate overflow-hidden bg-transparent">
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="grid gap-16 lg:grid-cols-5">
           <div className="flex flex-col gap-6 lg:col-span-2 lg:sticky lg:top-32">
