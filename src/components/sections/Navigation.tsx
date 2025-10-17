@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
 
 const navigation = [
@@ -56,7 +56,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -66,6 +66,13 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
+            <button
+              type="button"
+              aria-label="Search Orbythic"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-starlight/70 backdrop-blur transition duration-300 hover:border-nebula-purple/40 hover:text-starlight"
+            >
+              <Search className="h-4 w-4" />
+            </button>
             <Link
               href="/contact"
               className="bg-cosmic-gradient text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg hover:shadow-nebula-purple/25 transition-all duration-300 hover:-translate-y-0.5"
@@ -75,7 +82,14 @@ export default function Navigation() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-3">
+            <button
+              type="button"
+              aria-label="Search Orbythic"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-starlight/70 backdrop-blur transition duration-300 hover:border-nebula-purple/40 hover:text-starlight"
+            >
+              <Search className="h-4 w-4" />
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-starlight hover:text-nebula-purple transition-colors duration-300"

@@ -55,9 +55,9 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#000104" />
+        <meta name="theme-color" content="#050510" />
       </head>
-      <body className="font-body antialiased">
+      <body className="font-body antialiased bg-[var(--cosmic-deep)] text-starlight">
         {children}
         <Analytics />
         <SpeedInsights />

@@ -37,10 +37,10 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-black">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cosmic-deep-900/50" />
+    <footer className="relative overflow-hidden border-t border-white/10">
+      <div className="absolute inset-0 bg-white/[0.03] backdrop-blur-2xl" />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 text-starlight/90">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="inline-block group">
@@ -49,10 +49,10 @@ export default function Footer() {
                 alt="Orbythic"
                 width={160}
                 height={40}
-                className="h-10 w-auto group-hover:opacity-80 transition-opacity duration-300"
+                className="h-10 w-auto drop-shadow-[0_6px_30px_rgba(148,163,255,0.25)] transition-opacity duration-300 group-hover:opacity-90"
               />
             </Link>
-            <p className="mt-4 text-sm text-starlight/70">
+            <p className="mt-4 text-sm text-starlight/80">
               Transform education with AI-powered adaptive learning. Built for institutions that value outcomes, accessibility, and human-centered design.
             </p>
             <div className="mt-6 flex items-center space-x-4">
@@ -62,10 +62,10 @@ export default function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-starlight/60 hover:text-nebula-purple transition-colors duration-300"
+                  className="text-starlight/70 transition-colors duration-300 hover:text-starlight"
                   aria-label={link.name}
                 >
-                  <link.icon className="h-5 w-5" />
+                  <link.icon className="h-5 w-5 drop-shadow-[0_4px_20px_rgba(148,163,255,0.35)]" />
                 </a>
               ))}
             </div>
@@ -80,7 +80,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-sm text-starlight/70 hover:text-starlight transition-colors duration-300"
+                    className="text-sm text-starlight/75 transition-colors duration-300 hover:text-starlight"
                   >
                     {item.name}
                   </Link>
@@ -98,7 +98,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-sm text-starlight/70 hover:text-starlight transition-colors duration-300"
+                    className="text-sm text-starlight/75 transition-colors duration-300 hover:text-starlight"
                   >
                     {item.name}
                   </Link>
@@ -116,7 +116,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-sm text-starlight/70 hover:text-starlight transition-colors duration-300"
+                    className="text-sm text-starlight/75 transition-colors duration-300 hover:text-starlight"
                   >
                     {item.name}
                   </Link>
@@ -134,7 +134,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-sm text-starlight/70 hover:text-starlight transition-colors duration-300"
+                    className="text-sm text-starlight/75 transition-colors duration-300 hover:text-starlight"
                   >
                     {item.name}
                   </Link>
@@ -144,12 +144,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-8">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-sm text-starlight/60">
+        <div className="mt-12 rounded-2xl border border-white/15 bg-white/[0.05] px-6 py-6 shadow-[0_25px_80px_rgba(15,23,42,0.35)] backdrop-blur-2xl">
+          <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
+            <p className="text-sm text-starlight/80">
               &copy; {new Date().getFullYear()} Orbythic. All rights reserved.
             </p>
-            <div className="flex items-center gap-6 text-sm text-starlight/60">
+            <div className="flex items-center gap-6 text-sm text-starlight/80">
               <span>Built with Next.js, Tailwind CSS, and Framer Motion</span>
             </div>
           </div>
