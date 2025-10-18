@@ -11,8 +11,9 @@ const navigation = [
   { name: 'Quasera', href: '/quasera' },
   { name: 'Solutions', href: '/solutions' },
   { name: 'Pricing', href: '/pricing' },
+  { name: 'Docs', href: '/docs' },
   { name: 'Blog', href: '/blog' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'About', href: '/about' },
 ];
 
 export default function Navigation() {
@@ -33,44 +34,38 @@ export default function Navigation() {
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-black/90 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20'
+          ? 'bg-black/95 backdrop-blur-2xl border-b border-white/10'
           : 'bg-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group relative">
+          <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              <div className="absolute inset-0 bg-nebula-purple/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <Image
                 src="/orbythic-logo.png"
                 alt="Orbythic"
                 width={40}
                 height={40}
-                className="relative h-10 w-10 rounded-xl ring-1 ring-white/10 transition-all duration-300 group-hover:ring-nebula-purple/50 group-hover:scale-105"
+                className="h-10 w-10 rounded-lg ring-1 ring-white/10 transition-all duration-300 group-hover:ring-nebula-purple/40"
                 priority
               />
             </div>
-            <div className="flex flex-col">
-              <span className={cn(
-                'text-xl font-bold tracking-tight transition-all duration-300',
-                isHomePage && !isScrolled
-                  ? 'text-white drop-shadow-[0_2px_8px_rgba(255,255,255,0.3)]'
-                  : 'text-starlight group-hover:text-gradient'
-              )}>
-                Orbythic
-              </span>
-              <span className="text-[10px] text-nebula-purple/80 font-medium tracking-wide">
-                AI LEARNING
-              </span>
-            </div>
+            <span className={cn(
+              'text-xl font-bold tracking-tight transition-colors duration-300',
+              isHomePage && !isScrolled
+                ? 'text-white'
+                : 'text-starlight group-hover:text-nebula-purple'
+            )}>
+              Orbythic
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center space-x-8">
             {navigation.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -78,30 +73,27 @@ export default function Navigation() {
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    'relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300',
+                    'text-sm font-medium transition-colors duration-200',
                     isActive
                       ? 'text-nebula-purple'
                       : isHomePage && !isScrolled
-                      ? 'text-white/90 hover:text-white hover:bg-white/10'
-                      : 'text-starlight/80 hover:text-starlight hover:bg-white/5'
+                      ? 'text-white/90 hover:text-white'
+                      : 'text-starlight/80 hover:text-starlight'
                   )}
                 >
                   {item.name}
-                  {isActive && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-nebula-purple rounded-full" />
-                  )}
                 </Link>
               );
             })}
           </div>
 
           {/* CTA Button */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center">
             <Link
-              href="/pricing"
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-nebula-purple via-stellar-blue to-nebula-purple bg-[length:200%_100%] px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-nebula-purple/25 transition-all duration-500 hover:bg-[position:100%_0] hover:shadow-xl hover:shadow-nebula-purple/40 hover:-translate-y-0.5"
+              href="/contact"
+              className="px-6 py-2.5 bg-cosmic-gradient text-white text-sm font-semibold rounded-lg shadow-lg shadow-nebula-purple/20 transition-all duration-300 hover:shadow-xl hover:shadow-nebula-purple/30 hover:-translate-y-0.5"
             >
-              <span className="relative z-10">Join Waitlist</span>
+              Get Started
             </Link>
           </div>
 
@@ -109,25 +101,19 @@ export default function Navigation() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={cn(
-              'lg:hidden p-2 rounded-xl transition-all duration-300',
-              isHomePage && !isScrolled
-                ? 'text-white hover:bg-white/10'
-                : 'text-starlight hover:bg-white/5'
+              'lg:hidden transition-colors duration-200',
+              isHomePage && !isScrolled ? 'text-white' : 'text-starlight'
             )}
             aria-label="Toggle menu"
           >
-            {isOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden pb-4">
-            <div className="space-y-1 rounded-2xl border border-white/10 bg-black/95 backdrop-blur-xl p-4 shadow-2xl">
+            <div className="space-y-1 bg-black/95 backdrop-blur-xl rounded-xl border border-white/10 p-4">
               {navigation.map((item) => {
                 const isActive = pathname === item.href;
                 return (
@@ -135,9 +121,9 @@ export default function Navigation() {
                     key={item.name}
                     href={item.href}
                     className={cn(
-                      'block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300',
+                      'block px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200',
                       isActive
-                        ? 'bg-nebula-purple/10 text-nebula-purple'
+                        ? 'text-nebula-purple bg-white/5'
                         : 'text-starlight/80 hover:text-starlight hover:bg-white/5'
                     )}
                     onClick={() => setIsOpen(false)}
@@ -147,11 +133,11 @@ export default function Navigation() {
                 );
               })}
               <Link
-                href="/pricing"
-                className="block mt-4 px-4 py-3 bg-gradient-to-r from-nebula-purple to-stellar-blue text-white text-center rounded-xl font-semibold text-sm shadow-lg shadow-nebula-purple/25"
+                href="/contact"
+                className="block mt-4 px-3 py-2 bg-cosmic-gradient text-white rounded-lg font-semibold text-sm text-center"
                 onClick={() => setIsOpen(false)}
               >
-                Join Waitlist
+                Get Started
               </Link>
             </div>
           </div>
