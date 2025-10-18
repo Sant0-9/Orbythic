@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import mermaid from 'mermaid';
 
 interface CodeProps {
@@ -15,53 +15,84 @@ interface MermaidCodeBlockProps {
   className?: string;
 }
 
+const MERMAID_THEME = {
+  startOnLoad: true,
+  theme: 'dark' as const,
+  themeVariables: {
+    primaryColor: '#6366f1',
+    primaryTextColor: '#fff',
+    primaryBorderColor: '#4f46e5',
+    lineColor: '#8b5cf6',
+    secondaryColor: '#8b5cf6',
+    tertiaryColor: '#10b981',
+    background: 'transparent',
+    mainBkg: '#1f2937',
+    secondBkg: '#374151',
+    tertiaryBkg: '#4b5563',
+    textColor: '#f9fafb',
+    border1: '#6b7280',
+    border2: '#4b5563',
+    fontFamily: 'ui-sans-serif, system-ui, sans-serif',
+    fontSize: '16px',
+  },
+};
+
+let mermaidInitialized = false;
+
 export default function MermaidCodeBlock({ children, ...props }: MermaidCodeBlockProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  // Extract the code content and check if it's mermaid
   const codeElement = children?.props?.children;
   const className = children?.props?.className || '';
   const isMermaid = className.includes('language-mermaid');
 
-  useEffect(() => {
-    if (!isMermaid || !ref.current) return;
+  const code = useMemo(() => {
+    if (!isMermaid || !codeElement) {
+      return '';
+    }
 
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'dark',
-      themeVariables: {
-        primaryColor: '#6366f1',
-        primaryTextColor: '#fff',
-        primaryBorderColor: '#4f46e5',
-        lineColor: '#8b5cf6',
-        secondaryColor: '#8b5cf6',
-        tertiaryColor: '#10b981',
-        background: 'transparent',
-        mainBkg: '#1f2937',
-        secondBkg: '#374151',
-        tertiaryBkg: '#4b5563',
-        textColor: '#f9fafb',
-        border1: '#6b7280',
-        border2: '#4b5563',
-        fontFamily: 'ui-sans-serif, system-ui, sans-serif',
-        fontSize: '16px',
-      },
-    });
+    if (typeof codeElement === 'string') {
+      return codeElement.trim();
+    }
+
+    if (Array.isArray(codeElement)) {
+      return codeElement
+        .map((fragment) => (typeof fragment === 'string' ? fragment : String(fragment ?? '')))
+        .join('')
+        .trim();
+    }
+
+    return String(codeElement).trim();
+  }, [codeElement, isMermaid]);
+
+  useEffect(() => {
+    if (!isMermaid || !ref.current || !code) {
+      return;
+    }
+
+    if (!mermaidInitialized) {
+      mermaid.initialize(MERMAID_THEME);
+      mermaidInitialized = true;
+    }
 
     const id = `mermaid-${Math.random().toString(36).substring(7)}`;
-    const code = typeof codeElement === 'string' ? codeElement : String(codeElement || '');
 
-    mermaid.render(id, code).then(({ svg }) => {
-      if (ref.current) {
-        ref.current.innerHTML = svg;
-      }
-    }).catch((error) => {
-      console.error('Mermaid rendering error:', error);
-      if (ref.current) {
-        ref.current.innerHTML = `<pre class="text-red-400">Error rendering diagram: ${error instanceof Error ? error.message : 'Unknown error'}</pre>`;
-      }
-    });
-  }, [codeElement, isMermaid]);
+    mermaid
+      .render(id, code)
+      .then(({ svg }) => {
+        if (ref.current) {
+          ref.current.innerHTML = svg;
+        }
+      })
+      .catch((error) => {
+        console.error('Mermaid rendering error:', error);
+        if (ref.current) {
+          ref.current.innerHTML = `<pre class="text-red-400">Error rendering diagram: ${
+            error instanceof Error ? error.message : 'Unknown error'
+          }</pre>`;
+        }
+      });
+  }, [code, isMermaid]);
 
   if (!isMermaid) {
     // Return normal code block
