@@ -3,8 +3,15 @@
 import { useEffect, useRef } from 'react';
 import mermaid from 'mermaid';
 
+interface CodeProps {
+  children?: string;
+  className?: string;
+}
+
 interface MermaidCodeBlockProps {
-  children: any;
+  children?: {
+    props?: CodeProps;
+  };
   className?: string;
 }
 
@@ -51,7 +58,7 @@ export default function MermaidCodeBlock({ children, ...props }: MermaidCodeBloc
     }).catch((error) => {
       console.error('Mermaid rendering error:', error);
       if (ref.current) {
-        ref.current.innerHTML = `<pre class="text-red-400">Error rendering diagram: ${error.message}</pre>`;
+        ref.current.innerHTML = `<pre class="text-red-400">Error rendering diagram: ${error instanceof Error ? error.message : 'Unknown error'}</pre>`;
       }
     });
   }, [codeElement, isMermaid]);
