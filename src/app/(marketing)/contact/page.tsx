@@ -38,8 +38,8 @@ export default function ContactPage() {
         <ScrollReveal>
           <SectionHeader
             eyebrow="Get in Touch"
-            title="Let's Build the Future of Learning Together"
-            subtitle="Quasera is in active development. Whether you're interested in early access, want to collaborate, or just have questions about the vision, I'd love to hear from you."
+            title="Let&apos;s Build the Future of Learning Together"
+            subtitle="Quasera is in active development. Whether you&apos;re interested in early access, want to collaborate, or just have questions about the vision, I&apos;d love to hear from you."
           />
         </ScrollReveal>
 
@@ -48,7 +48,7 @@ export default function ContactPage() {
             <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 backdrop-blur-sm">
               <h2 className="text-2xl font-bold text-starlight">Send Me a Message</h2>
               <p className="mt-4 text-starlight/70">
-                I'm Shifat Islam Santo, the founder and solo developer behind Quasera.
+                I&apos;m Shifat Islam Santo, the founder and solo developer behind Quasera.
                 I personally read and respond to every message. Share your thoughts, questions,
                 or ideas about AI-powered learning.
               </p>
@@ -80,7 +80,7 @@ export default function ContactPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1.5 inline-flex h-1.5 w-1.5 shrink-0 rounded-full bg-nebula-purple" />
-                    <span>If you're interested in early access or beta testing</span>
+                    <span>If you&apos;re interested in early access or beta testing</span>
                   </li>
                 </ul>
               </div>
@@ -137,7 +137,7 @@ export default function ContactPage() {
               <p className="mt-4 text-lg text-starlight/70">
                 Want to be among the first to experience Quasera when it launches?
                 Join the waitlist to get exclusive updates, beta access opportunities,
-                and a chance to shape the platform's development.
+                and a chance to shape the platform&apos;s development.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
                 <Link
@@ -166,7 +166,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-lg font-semibold text-starlight">When will Quasera be available?</h3>
                   <p className="mt-2 text-starlight/70">
-                    Quasera is currently in active development. I'm building the core platform architecture
+                    Quasera is currently in active development. I&apos;m building the core platform architecture
                     and AI agent systems. Join the waitlist to be notified when early access becomes available.
                   </p>
                 </div>
@@ -174,15 +174,15 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-lg font-semibold text-starlight">Can I contribute to development?</h3>
                   <p className="mt-2 text-starlight/70">
-                    Absolutely! I'm building Quasera in the open and welcome contributions, feedback, and
-                    collaboration. Reach out via email or GitHub if you're interested in contributing.
+                    Absolutely! I&apos;m building Quasera in the open and welcome contributions, feedback, and
+                    collaboration. Reach out via email or GitHub if you&apos;re interested in contributing.
                   </p>
                 </div>
 
                 <div>
                   <h3 className="text-lg font-semibold text-starlight">Is Quasera free for students?</h3>
                   <p className="mt-2 text-starlight/70">
-                    I'm committed to making Quasera accessible to all students. Pricing details are still being
+                    I&apos;m committed to making Quasera accessible to all students. Pricing details are still being
                     finalized, but there will be a free tier for individual students. Check the{' '}
                     <Link href="/pricing" className="text-nebula-purple hover:underline">pricing page</Link> for
                     current plans.
@@ -192,8 +192,8 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-lg font-semibold text-starlight">Who is building Quasera?</h3>
                   <p className="mt-2 text-starlight/70">
-                    I'm Shifat Islam Santo, a student developer passionate about transforming education with AI.
-                    I'm currently the sole founder and developer of Quasera, building it from the ground up based
+                    I&apos;m Shifat Islam Santo, a student developer passionate about transforming education with AI.
+                    I&apos;m currently the sole founder and developer of Quasera, building it from the ground up based
                     on my own experiences as a student struggling with fragmented learning tools.
                   </p>
                 </div>
