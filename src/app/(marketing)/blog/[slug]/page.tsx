@@ -3,7 +3,10 @@ import Link from 'next/link';
 import { Calendar, Clock, User, ArrowLeft } from 'lucide-react';
 import { getPostBySlug, getAllPosts } from '@/lib/blog';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
+import rehypeMermaid from 'rehype-mermaid';
 import type { Metadata } from 'next';
+import '../blog.css';
 
 interface BlogPostPageProps {
   params: {
@@ -100,8 +103,16 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </header>
 
-        <div className="prose prose-invert prose-lg mt-12 max-w-none prose-headings:text-starlight prose-p:text-starlight/80 prose-a:text-nebula-purple prose-a:no-underline hover:prose-a:text-nebula-purple/80 prose-strong:text-starlight prose-code:text-stellar-blue prose-pre:bg-white/[0.03] prose-pre:border prose-pre:border-white/10">
-          <MDXRemote source={post.content} />
+        <div className="prose prose-invert prose-lg mt-12 max-w-none prose-headings:text-starlight prose-p:text-starlight/80 prose-a:text-nebula-purple prose-a:no-underline hover:prose-a:text-nebula-purple/80 prose-strong:text-starlight prose-code:text-stellar-blue prose-pre:bg-white/[0.03] prose-pre:border prose-pre:border-white/10 prose-table:text-starlight prose-th:border-white/10 prose-td:border-white/10 prose-blockquote:border-nebula-purple/40 prose-blockquote:text-starlight/90">
+          <MDXRemote
+            source={post.content}
+            options={{
+              mdxOptions: {
+                remarkPlugins: [remarkGfm],
+                rehypePlugins: [[rehypeMermaid, { strategy: 'inline-svg' }]],
+              },
+            }}
+          />
         </div>
 
         <footer className="mt-16 border-t border-white/10 pt-8">
