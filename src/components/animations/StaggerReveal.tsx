@@ -31,18 +31,23 @@ export default function StaggerReveal({
     const container = containerRef.current;
     if (!container) return;
 
-    // Use Array.from to convert children to array, or use specific selector
-    const children = childSelector === '> *'
-      ? Array.from(container.children)
-      : container.querySelectorAll(childSelector);
+    const targets =
+      childSelector === '> *'
+        ? Array.from(container.children)
+        : Array.from(container.querySelectorAll(childSelector));
 
-    const animation = gsap.from(children, {
+    if (!targets.length) {
+      return;
+    }
+
+    const animation = gsap.from(targets, {
       y: 40,
       opacity: 0,
       duration,
       delay,
       stagger,
       ease: 'power3.out',
+      immediateRender: false,
       scrollTrigger: {
         trigger: container,
         start: 'top 90%',

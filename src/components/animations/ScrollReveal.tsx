@@ -35,6 +35,7 @@ export default function ScrollReveal({
       duration,
       delay,
       ease: 'power3.out',
+      immediateRender: false,
       scrollTrigger: {
         trigger: element,
         start: 'top 90%',
