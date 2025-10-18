@@ -1,19 +1,19 @@
 'use client';
 
-import { useEffect, useMemo, useRef } from 'react';
+import { isValidElement, useEffect, useMemo, useRef } from 'react';
+import type { HTMLAttributes, ReactElement, ReactNode } from 'react';
 import mermaid from 'mermaid';
 
 interface CodeProps {
-  children?: string;
+  children?: ReactNode;
   className?: string;
 }
 
-interface MermaidCodeBlockProps {
-  children?: {
-    props?: CodeProps;
-  };
-  className?: string;
-}
+type MermaidCodeBlockProps = HTMLAttributes<HTMLPreElement>;
+
+type CodeElement = ReactElement<CodeProps>;
+
+const isCodeElement = (node: ReactNode): node is CodeElement => isValidElement(node);
 
 const MERMAID_THEME = {
   startOnLoad: true,
@@ -42,8 +42,25 @@ let mermaidInitialized = false;
 export default function MermaidCodeBlock({ children, ...props }: MermaidCodeBlockProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  const codeElement = children?.props?.children;
-  const className = children?.props?.className || '';
+  const codeChild = useMemo<CodeElement | undefined>(() => {
+    if (!children) {
+      return undefined;
+    }
+
+    if (Array.isArray(children)) {
+      return children.find((child): child is CodeElement => isCodeElement(child));
+    }
+
+    if (isCodeElement(children)) {
+      return children;
+    }
+
+    return undefined;
+  }, [children]);
+
+  const codeElement = codeChild?.props?.children;
+  const codeClassName = codeChild?.props?.className;
+  const className = typeof codeClassName === 'string' ? codeClassName : '';
   const isMermaid = className.includes('language-mermaid');
 
   const code = useMemo(() => {
@@ -68,7 +85,12 @@ export default function MermaidCodeBlock({ children, ...props }: MermaidCodeBloc
 
     if (Array.isArray(rawCode)) {
       return rawCode
-        .map((fragment) => (typeof fragment === 'string' ? fragment : String(fragment ?? '')))
+        .map((fragment) => {
+          if (fragment == null) {
+            return '';
+          }
+          return typeof fragment === 'string' ? fragment : String(fragment);
+        })
         .join('')
         .trim();
     }
