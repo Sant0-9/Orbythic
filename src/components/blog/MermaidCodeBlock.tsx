@@ -47,22 +47,33 @@ export default function MermaidCodeBlock({ children, ...props }: MermaidCodeBloc
   const isMermaid = className.includes('language-mermaid');
 
   const code = useMemo(() => {
-    if (!isMermaid || !codeElement) {
+    if (!isMermaid) {
       return '';
     }
 
-    if (typeof codeElement === 'string') {
-      return codeElement.trim();
+    const rawCode = codeElement as unknown;
+
+    if (
+      rawCode === null ||
+      rawCode === undefined ||
+      rawCode === false ||
+      rawCode === true
+    ) {
+      return '';
     }
 
-    if (Array.isArray(codeElement)) {
-      return codeElement
+    if (typeof rawCode === 'string') {
+      return rawCode.trim();
+    }
+
+    if (Array.isArray(rawCode)) {
+      return rawCode
         .map((fragment) => (typeof fragment === 'string' ? fragment : String(fragment ?? '')))
         .join('')
         .trim();
     }
 
-    return String(codeElement).trim();
+    return String(rawCode).trim();
   }, [codeElement, isMermaid]);
 
   useEffect(() => {
