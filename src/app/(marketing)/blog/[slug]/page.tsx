@@ -4,8 +4,8 @@ import { Calendar, Clock, User, ArrowLeft } from 'lucide-react';
 import { getPostBySlug, getAllPosts } from '@/lib/blog';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
-import rehypeMermaid from 'rehype-mermaid';
 import type { Metadata } from 'next';
+import MermaidCodeBlock from '@/components/blog/MermaidCodeBlock';
 import '../blog.css';
 
 interface BlogPostPageProps {
@@ -106,10 +106,12 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="prose prose-invert prose-lg mt-12 max-w-none prose-headings:text-starlight prose-p:text-starlight/80 prose-a:text-nebula-purple prose-a:no-underline hover:prose-a:text-nebula-purple/80 prose-strong:text-starlight prose-code:text-stellar-blue prose-pre:bg-white/[0.03] prose-pre:border prose-pre:border-white/10 prose-table:text-starlight prose-th:border-white/10 prose-td:border-white/10 prose-blockquote:border-nebula-purple/40 prose-blockquote:text-starlight/90">
           <MDXRemote
             source={post.content}
+            components={{
+              pre: MermaidCodeBlock,
+            }}
             options={{
               mdxOptions: {
                 remarkPlugins: [remarkGfm],
-                rehypePlugins: [[rehypeMermaid, { strategy: 'inline-svg' }]],
               },
             }}
           />
