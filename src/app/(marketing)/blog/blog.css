@@ -1,20 +1,23 @@
 /* Mermaid diagram styling */
-.prose pre.mermaid {
+.prose .mermaid-container {
   background: transparent !important;
   border: none !important;
   padding: 2rem 0 !important;
-}
-
-.prose .mermaid {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 2rem 0;
 }
 
-.prose .mermaid svg {
+.prose .mermaid-container svg {
   max-width: 100%;
   height: auto;
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+}
+
+/* Hide mermaid code blocks that will be rendered as SVG */
+.prose pre:has(code.language-mermaid) {
+  display: none;
 }
 
 /* Table styling */

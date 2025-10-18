@@ -4,15 +4,17 @@ import { useEffect, useRef } from 'react';
 import mermaid from 'mermaid';
 
 interface MermaidCodeBlockProps {
-  children: string;
+  children: any;
   className?: string;
 }
 
-export default function MermaidCodeBlock({ children, className }: MermaidCodeBlockProps) {
+export default function MermaidCodeBlock({ children, ...props }: MermaidCodeBlockProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  // Check if this is a mermaid code block
-  const isMermaid = className?.includes('language-mermaid');
+  // Extract the code content and check if it's mermaid
+  const codeElement = children?.props?.children;
+  const className = children?.props?.className || '';
+  const isMermaid = className.includes('language-mermaid');
 
   useEffect(() => {
     if (!isMermaid || !ref.current) return;
@@ -40,7 +42,7 @@ export default function MermaidCodeBlock({ children, className }: MermaidCodeBlo
     });
 
     const id = `mermaid-${Math.random().toString(36).substring(7)}`;
-    const code = typeof children === 'string' ? children : String(children);
+    const code = typeof codeElement === 'string' ? codeElement : String(codeElement || '');
 
     mermaid.render(id, code).then(({ svg }) => {
       if (ref.current) {
@@ -49,18 +51,15 @@ export default function MermaidCodeBlock({ children, className }: MermaidCodeBlo
     }).catch((error) => {
       console.error('Mermaid rendering error:', error);
       if (ref.current) {
-        ref.current.innerHTML = `<pre className="text-red-400">Error rendering diagram</pre>`;
+        ref.current.innerHTML = `<pre class="text-red-400">Error rendering diagram: ${error.message}</pre>`;
       }
     });
-  }, [children, isMermaid]);
+  }, [codeElement, isMermaid]);
 
   if (!isMermaid) {
-    return (
-      <pre className={className}>
-        <code>{children}</code>
-      </pre>
-    );
+    // Return normal code block
+    return <pre {...props}>{children}</pre>;
   }
 
-  return <div ref={ref} className="mermaid-container my-8 flex justify-center" />;
+  return <div ref={ref} className="mermaid-container my-8 flex justify-center overflow-x-auto" />;
 }
